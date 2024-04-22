@@ -4,6 +4,13 @@ import {useState} from 'react';
 const Catalog = () => {
   const [hidden, setHidden] = useState(true);
 
+  const toggleStyle = (hidden) => ({
+    marginTop: 26,
+    marginLeft: 20,
+    marginight: 20,
+    cursor: 'pointer'
+  });
+
   return (
       <div
         className="cat"

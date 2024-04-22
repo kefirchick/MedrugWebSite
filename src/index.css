@@ -34,11 +34,6 @@ a:hover {
   justify-content: space-evenly;
 }
 
-.navlinks_mobile {
-  display: flex;
-  flex-direction: column;
-}
-
 .logo {
   background: url("./img/logocolor.svg");
   background-repeat: no-repeat;
@@ -89,16 +84,4 @@ a:hover {
 
 .hidden {
   display: none;
-}
-
-.toggle svg {
-  width: 20px;
-  height: 20px;
-}
-
-.toggle {
-  margin-top: 26px;
-  margin-left: 20px;
-  margin-right: 20px;
-  cursor: pointer;
 }

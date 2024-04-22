@@ -10,15 +10,34 @@ const NavbarMobile = () => {
     toggleHidden(!hidden);
   };
 
+  const toggleStyle = {
+    marginTop: 26,
+    marginLeft: 20,
+    marginRight: 20,
+    cursor: 'pointer'
+  };
+
+  const svgStyle = {
+    width: 20,
+    height: 20
+  };
+
+  const navlinksStyle = (hidden) => ({
+    display: hidden ? 'none' : 'flex',
+    flexDirection: 'column'
+  });
+
+  console.log(navlinksStyle);
+
   return (
     <>
       <nav className="navbar">
-        <div className="toggle" onClick={handleToggle}>
-          <IoMenu />
+        <div style={toggleStyle} onClick={handleToggle}>
+          <IoMenu style={svgStyle} />
         </div>
         <NavLink to="/" className="logo"></NavLink>
       </nav>
-      <div className={hidden ? "navlinks_mobile hidden" : "navlinks_mobile"}>
+      <div style={navlinksStyle(hidden)}>
           <NavLink to="/about">О КОМПАНИИ</NavLink>
           <NavLink to="/">НОВОСТИ</NavLink>
           <CatalogMobile />
