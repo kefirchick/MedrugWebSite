@@ -5,13 +5,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  height: 90px;
-  align-items: center;
-}
-
 a {
   text-decoration: none;
   color: dimgray;
@@ -23,6 +16,14 @@ a:hover {
   color: black;
   transition: 0.2s;
  }
+
+/* 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  align-items: center;
+}
 
 .navlinks {
   float: right;
@@ -84,4 +85,4 @@ a:hover {
 
 .hidden {
   display: none;
-}
+} */

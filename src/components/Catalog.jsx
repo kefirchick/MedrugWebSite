@@ -1,31 +1,36 @@
-import {NavLink} from "react-router-dom";
 import {useState} from 'react';
+import { CatalogMenu } from "./CatalogMenu";
 
-const Catalog = () => {
-  const [hidden, setHidden] = useState(true);
+const Catalog = ({isMobile}) => {
+  let [isHidden, setHidden] = useState(true);
+  
+  const handleToggle = () => {
+    setHidden(!isHidden);
+  };
 
-  const toggleStyle = (hidden) => ({
-    marginTop: 26,
-    marginLeft: 20,
-    marginight: 20,
+  const handleHover = (isHovered) => {
+    if (isMobile) isHidden = (isHovered) ? false : true;
+  }
+
+  const style = {
+    height: '100%',
+    display: 'flex',
     cursor: 'pointer'
-  });
+  }
+
+const buttonStyle = {
+    color: 'dimgray',
+    marginTop: 20
+  }
 
   return (
       <div
-        className="cat"
-        onMouseEnter={() => setHidden(false)}
-        onMouseLeave={() => setHidden(true)}
+        style={style}
+        onMouseEnter={() => handleHover(true)}
+        onMouseLeave={() => handleHover(false)}
       >
-        <div className="cat_button">КАТАЛОГ</div>
-        <div className={hidden ? "cat_list_mobile hidden" : "cat_list"}>
-          <NavLink to="/">УЗИ</NavLink>
-          <NavLink to="/">УЗ ДАТЧИКИ</NavLink>
-          <NavLink to="/">ЭНДОСКОПИЯ</NavLink>
-          <NavLink to="/">ИНСТРУМЕНТЫ</NavLink>
-          <NavLink to="/">ХЕЛИКОБАКТЕР</NavLink>
-          <NavLink to="/">ТЕСТЫ ХЕЛИКОБАКТЕР</NavLink>
-        </div>
+        <div style={buttonStyle} onClick={handleToggle} >КАТАЛОГ</div>
+        <CatalogMenu isMobile={isMobile} isHidden={isHidden} />
       </div>
   );
 }
