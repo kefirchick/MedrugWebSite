@@ -1,26 +1,22 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { CatalogMenu } from "./CatalogMenu";
 
 const Catalog = ({isMobile}) => {
-  let [isHidden, setHidden] = useState(true);
+  let [isCatalogHidden, setCatalogHidden] = useState(true);
   
   const handleToggle = () => {
-    setHidden(!isHidden);
+    if (isMobile) setCatalogHidden(!isCatalogHidden);
   };
 
   const handleHover = (isHovered) => {
-    if (isMobile) isHidden = (isHovered) ? false : true;
+    if (!isMobile) setCatalogHidden(isHovered ? false : true);
   }
 
   const style = {
     height: '100%',
     display: 'flex',
+    flexDirection: 'column',
     cursor: 'pointer'
-  }
-
-const buttonStyle = {
-    color: 'dimgray',
-    marginTop: 20
   }
 
   return (
@@ -29,8 +25,8 @@ const buttonStyle = {
         onMouseEnter={() => handleHover(true)}
         onMouseLeave={() => handleHover(false)}
       >
-        <div style={buttonStyle} onClick={handleToggle} >КАТАЛОГ</div>
-        <CatalogMenu isMobile={isMobile} isHidden={isHidden} />
+        <div style={{color: 'dimgray', margin: 16}} onClick={handleToggle} >КАТАЛОГ</div>
+        <CatalogMenu isMobile={isMobile} isCatalogHidden={isCatalogHidden} />
       </div>
   );
 }

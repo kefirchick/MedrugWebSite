@@ -1,19 +1,18 @@
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const CatalogMenu = ({isMobile, isHidden}) => {
+const CatalogMenu = ({isMobile, isCatalogHidden}) => {
 
-  const style = (position, visibility) => ({
-    display: 'flex',
+  const style = (display, position) => ({
+    display,
     flexDirection: 'column',
     position,
-    top: 90,
-    visibility
+    top: 90
   })
 
   return (
     <div style={style(
-      isMobile ? 'static' : 'absolute',
-      isHidden ? 'none' : 'visible'
+      isCatalogHidden ? 'none' : 'flex',
+      isMobile ? 'static' : 'absolute'
     )}>
       <NavLink to="/">УЗИ</NavLink>
       <NavLink to="/">УЗ ДАТЧИКИ</NavLink>

@@ -1,21 +1,28 @@
-import {useMediaQuery} from 'react-responsive';
-import {NavbarHead} from './NavbarHead';
-import {NavbarMenu} from './NavbarMenu';
+import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import { NavbarHead } from './NavbarHead';
+import { NavbarMenu } from './NavbarMenu';
 
 const Navbar = () => {
   let isMobile = useMediaQuery({query: '(max-width: 950px)'});
+  const [isMenuHidden, setMenuHidden] = useState(true);
 
-  const style = {
+  const handleToggler = () => {
+    setMenuHidden(!isMenuHidden);
+  };
+
+  const style = (flexDirection) => ({
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center'
-  }
+    flexDirection,
+    alignItems: 'center',
+  })
 
   return (
-      <nav style={style}>
-        <NavbarHead isMobile={isMobile} />
-        <NavbarMenu isMobile={isMobile} />
-      </nav>
+    <nav style={style(isMobile ? 'column' : 'row')}>
+      <NavbarHead isMobile={isMobile} handleToggler={handleToggler} />
+      <NavbarMenu isMobile={isMobile} isMenuHidden={isMenuHidden} />
+    </nav>
   );
 }
 
