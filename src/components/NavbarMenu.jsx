@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Catalog } from "./Catalog"
+import { CatalogHead } from "./CatalogHead"
 
 const NavbarMenu = ({isMobile, isMenuHidden}) => {
   const createStyle = () => {
@@ -23,7 +23,7 @@ const NavbarMenu = ({isMobile, isMenuHidden}) => {
     <div style={createStyle()}>
       <NavLink to="/about">О КОМПАНИИ</NavLink>
       <NavLink to="/news">НОВОСТИ</NavLink>
-      <Catalog isMobile={isMobile} isMenuHidden={isMenuHidden} />
+      <CatalogHead isMobile={isMobile} isMenuHidden={isMenuHidden} />
       <NavLink to="/">УСЛУГИ</NavLink>
       <NavLink to="/">КОНТАКТЫ</NavLink>
     </div>

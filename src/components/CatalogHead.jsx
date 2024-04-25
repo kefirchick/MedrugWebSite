@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CatalogMenu } from "./CatalogMenu";
 
-const Catalog = ({isMobile}) => {
+const CatalogHead = ({isMobile}) => {
   let [isCatalogHidden, setCatalogHidden] = useState(true);
   
   const handleToggle = () => {
@@ -27,4 +27,4 @@ const Catalog = ({isMobile}) => {
   );
 }
 
-export {Catalog}
+export {CatalogHead}
