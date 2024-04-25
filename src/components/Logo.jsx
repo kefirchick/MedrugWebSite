@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import LogoImg from '../img/logocolor.png'
+import LogoImg from '../img/logocolor.png';
 
 const Logo = () => {
   const style = {
@@ -13,7 +13,7 @@ const Logo = () => {
   }
 
   return (
-      <NavLink style={style} to="/" ></NavLink>
+      <NavLink style={style} to="/"></NavLink>
   );
 }
 

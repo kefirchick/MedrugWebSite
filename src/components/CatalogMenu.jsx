@@ -6,17 +6,17 @@ const CatalogMenu = ({isMobile, isCatalogHidden}) => {
     display: isCatalogHidden ? 'none' : 'flex',
     flexDirection: 'column',
     position: isMobile ? 'static' : 'absolute',
-    top: 90
+    top: 90,
   })
 
   return (
     <div style={style()}>
-      <NavLink to="/">УЗИ</NavLink>
-      <NavLink to="/">УЗ ДАТЧИКИ</NavLink>
-      <NavLink to="/">ЭНДОСКОПИЯ</NavLink>
-      <NavLink to="/">ИНСТРУМЕНТЫ</NavLink>
-      <NavLink to="/">ХЕЛИКОБАКТЕР</NavLink>
-      <NavLink to="/">ТЕСТЫ ХЕЛИКОБАКТЕР</NavLink>
+      <NavLink to="/catalog">УЗИ</NavLink>
+      <NavLink to="/catalog">УЗ ДАТЧИКИ</NavLink>
+      <NavLink to="/catalog">ЭНДОСКОПИЯ</NavLink>
+      <NavLink to="/catalog">ИНСТРУМЕНТЫ</NavLink>
+      <NavLink to="/catalog">ХЕЛИКОБАКТЕР</NavLink>
+      <NavLink to="/catalog">ТЕСТЫ ХЕЛИКОБАКТЕР</NavLink>
     </div>
   );
 }
