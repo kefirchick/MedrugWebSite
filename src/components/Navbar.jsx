@@ -11,15 +11,15 @@ const Navbar = () => {
     setMenuHidden(!isMenuHidden);
   };
 
-  const style = (flexDirection) => ({
+  const style = () => ({
     display: 'flex',
     justifyContent: 'space-between',
-    flexDirection,
+    flexDirection: isMobile ? 'column' : 'row',
     alignItems: 'center',
   })
 
   return (
-    <nav style={style(isMobile ? 'column' : 'row')}>
+    <nav style={style()}>
       <NavbarHead isMobile={isMobile} handleToggler={handleToggler} />
       <NavbarMenu isMobile={isMobile} isMenuHidden={isMenuHidden} />
     </nav>

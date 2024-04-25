@@ -5,27 +5,23 @@ const Catalog = ({isMobile}) => {
   let [isCatalogHidden, setCatalogHidden] = useState(true);
   
   const handleToggle = () => {
-    if (isMobile) setCatalogHidden(!isCatalogHidden);
+    setCatalogHidden(!isCatalogHidden);
   };
 
-  const handleHover = (isHovered) => {
-    if (!isMobile) setCatalogHidden(isHovered ? false : true);
-  }
-
   const style = {
-    height: '100%',
     display: 'flex',
     flexDirection: 'column',
+  }
+
+  const buttonStyle = {
+    color: 'dimgray',
+    margin: 16,
     cursor: 'pointer'
   }
 
   return (
-      <div
-        style={style}
-        onMouseEnter={() => handleHover(true)}
-        onMouseLeave={() => handleHover(false)}
-      >
-        <div style={{color: 'dimgray', margin: 16}} onClick={handleToggle} >КАТАЛОГ</div>
+      <div style={style}>
+        <div style={buttonStyle} onClick={handleToggle} >КАТАЛОГ</div>
         <CatalogMenu isMobile={isMobile} isCatalogHidden={isCatalogHidden} />
       </div>
   );

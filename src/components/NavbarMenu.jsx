@@ -4,25 +4,29 @@ import { Catalog } from "./Catalog"
 const NavbarMenu = ({isMobile, isMenuHidden}) => {
   const createStyle = () => {
     const style = {
-      height: '100%',
+      display: 'flex',
       justifyContent: 'space-evenly',
+      flexDirection: 'row',
+      width: 800
     }
-    style.flexDirection = isMobile ? 'column' : 'row';
-    style.width = isMobile ? '100%' : 800;
-    style.display = (isMobile && isMenuHidden) ? 'none' : 'flex';
+    const styleMobile = {
+      display: isMenuHidden ? 'none' : 'flex',
+      width: '100%',
+      flexDirection: 'column'
+    }
 
-    return style;
+    return isMobile ? styleMobile : style;
   };
 
 
   return (
-      <div style={createStyle()}>
-          <NavLink to="/about">О КОМПАНИИ</NavLink>
-          <NavLink to="/">НОВОСТИ</NavLink>
-          <Catalog isMobile={isMobile} isMenuHidden={isMenuHidden} />
-          <NavLink to="/">УСЛУГИ</NavLink>
-          <NavLink to="/">КОНТАКТЫ</NavLink>
-      </div>
+    <div style={createStyle()}>
+      <NavLink to="/about">О КОМПАНИИ</NavLink>
+      <NavLink to="/news">НОВОСТИ</NavLink>
+      <Catalog isMobile={isMobile} isMenuHidden={isMenuHidden} />
+      <NavLink to="/">УСЛУГИ</NavLink>
+      <NavLink to="/">КОНТАКТЫ</NavLink>
+    </div>
   );
 }
 
