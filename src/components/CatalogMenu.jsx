@@ -7,6 +7,7 @@ const CatalogMenu = ({isMobile, isCatalogHidden}) => {
     flexDirection: 'column',
     position: isMobile ? 'static' : 'absolute',
     top: 90,
+    backgroundColor: 'white'
   })
 
   return (
