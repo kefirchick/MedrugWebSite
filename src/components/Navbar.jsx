@@ -15,7 +15,7 @@ const Navbar = () => {
     display: 'flex',
     justifyContent: 'space-between',
     flexDirection: isMobile ? 'column' : 'row',
-    alignItems: 'center',
+    alignItems: 'stretch',
   })
 
   return (

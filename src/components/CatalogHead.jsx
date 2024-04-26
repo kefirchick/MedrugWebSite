@@ -10,6 +10,7 @@ const CatalogHead = ({isMobile}) => {
 
   const style = {
     display: 'flex',
+    justifyContent: 'center',
     flexDirection: 'column',
   }
 

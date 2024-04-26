@@ -6,6 +6,7 @@ const NavbarMenu = ({isMobile, isMenuHidden}) => {
     const style = {
       display: 'flex',
       justifyContent: 'space-evenly',
+      alignItems: 'center',
       flexDirection: 'row',
       width: 800
     }
