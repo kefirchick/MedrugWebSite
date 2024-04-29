@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isMenuHidden, setMenuHidden] = useState(true);
 
   const handleToggler = () => {
-    setMenuHidden(!isMenuHidden);
+    setMenuHidden(isMenuHidden => !isMenuHidden);
   };
 
   const style = () => ({

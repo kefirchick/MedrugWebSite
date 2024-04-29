@@ -19,6 +19,7 @@ function App() {
         <Route path="/catalog" element={<Catalog />}></Route>
         <Route path="/service" element={<Service />}></Route>
         <Route path="/contacts" element={<Contacts />}></Route>
+        {/* <Route exact path="/index" render={() => {window.location.href="/index.html"}} /> */}
       </Routes>
       <Footer />
     </>

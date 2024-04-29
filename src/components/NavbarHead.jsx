@@ -2,7 +2,6 @@ import { Toggler } from './Toggler';
 import { Logo } from './Logo';
 
 const NavbarHead = ({isMobile, handleToggler}) => {
-
   const style = () => ({
     display: 'flex',
     justifyContent: 'space-between',

@@ -1,24 +1,24 @@
 import { useState } from 'react';
 import { CatalogMenu } from "./CatalogMenu";
 
+const style = {
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+}
+
+const buttonStyle = {
+  color: 'dimgray',
+  margin: 16,
+  cursor: 'pointer'
+}
+
 const CatalogHead = ({isMobile}) => {
   let [isCatalogHidden, setCatalogHidden] = useState(true);
   
   const handleToggle = () => {
-    setCatalogHidden(!isCatalogHidden);
+    setCatalogHidden(isCatalogHidden => !isCatalogHidden);
   };
-
-  const style = {
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-  }
-
-  const buttonStyle = {
-    color: 'dimgray',
-    margin: 16,
-    cursor: 'pointer'
-  }
 
   return (
       <div style={style}>

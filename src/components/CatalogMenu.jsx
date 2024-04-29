@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 
 const CatalogMenu = ({isMobile, isCatalogHidden}) => {
-
   const style = () => ({
     display: isCatalogHidden ? 'none' : 'flex',
     flexDirection: 'column',

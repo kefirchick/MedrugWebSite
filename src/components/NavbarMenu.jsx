@@ -1,15 +1,16 @@
 import { NavLink } from "react-router-dom";
 import { CatalogHead } from "./CatalogHead";
 
+const style = {
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  alignItems: 'center',
+  flexDirection: 'row',
+  width: 800
+}
+
 const NavbarMenu = ({isMobile, isMenuHidden}) => {
   const createStyle = () => {
-    const style = {
-      display: 'flex',
-      justifyContent: 'space-evenly',
-      alignItems: 'center',
-      flexDirection: 'row',
-      width: 800
-    }
     const styleMobile = {
       display: isMenuHidden ? 'none' : 'flex',
       width: '100%',

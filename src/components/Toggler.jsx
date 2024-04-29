@@ -1,7 +1,6 @@
 import { IoMenu } from "react-icons/io5";
 
 const Toggler = ({isMobile, handleToggler}) => {
-
   const style = () => ({
     display: isMobile ? 'flex' : 'none',
     cursor: 'pointer',
