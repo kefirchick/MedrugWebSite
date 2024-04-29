@@ -2,12 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { useMediaQuery } from 'react-responsive';
 import { Navbar } from "./components/Navbar.jsx";
 import { Footer } from "./components/Footer.jsx";
-import { Home } from "./pages/Home.jsx";
-import { About } from "./pages/About.jsx";
-import { News } from "./pages/News";
-import { Catalog } from "./pages/Catalog";
-import { Service } from "./pages/Service";
-import { Contacts } from "./pages/Contacts";
+import { About, Catalog, Contacts, Home, News, Service } from "./pages/index.js";
 
 function App() {
   let isMobile = useMediaQuery({query: '(max-width: 950px)'});

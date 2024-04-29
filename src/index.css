@@ -5,18 +5,21 @@
   font-family: Arial Medium, Helvetica, sans-serif;
  }
 
-nav a {
-  text-decoration: none;
+a {
   color: dimgray;
+  text-decoration: none;
+}
+
+nav a {
   margin: 16px;
- }
+}
 
 nav a:hover {
-  text-decoration: none;
+  color:black;
   transition: .3s;
  }
 
-.active {
+nav a.active {
   color:teal;
   transition: .3s;
 }
