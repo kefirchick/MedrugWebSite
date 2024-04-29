@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { useMemo } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { NavbarHead } from './NavbarHead';
 import { NavbarMenu } from './NavbarMenu';
 
-const Navbar = () => {
-  let isMobile = useMediaQuery({query: '(max-width: 950px)'});
+const Navbar = ({isMobile}) => {
   const [isMenuHidden, setMenuHidden] = useState(true);
 
   const handleToggler = () => {

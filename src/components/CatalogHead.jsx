@@ -5,6 +5,7 @@ const style = {
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',
+  height: '100%'
 }
 
 const buttonStyle = {
@@ -17,13 +18,17 @@ const CatalogHead = ({isMobile}) => {
   let [isCatalogHidden, setCatalogHidden] = useState(true);
   
   const handleToggle = () => {
-    setCatalogHidden(isCatalogHidden => !isCatalogHidden);
+    if (isMobile) setCatalogHidden(isCatalogHidden => !isCatalogHidden);
   };
 
   return (
-      <div style={style}>
+      <div
+        style={style}
+        onMouseEnter={ () => {if (!isMobile) setCatalogHidden(false)} }
+        onMouseLeave={ () => {if (!isMobile) setCatalogHidden(true)} }
+      >
         <div style={buttonStyle} onClick={handleToggle} >КАТАЛОГ</div>
-        <CatalogMenu isMobile={isMobile} isCatalogHidden={isCatalogHidden} />
+        <CatalogMenu isMobile={isMobile} isCatalogHidden={isCatalogHidden} setCatalogHidden={setCatalogHidden} />
       </div>
   );
 }

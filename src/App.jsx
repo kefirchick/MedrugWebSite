@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useMediaQuery } from 'react-responsive';
 import { Navbar } from "./components/Navbar.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { Home } from "./pages/Home.jsx";
@@ -9,9 +10,11 @@ import { Service } from "./pages/Service";
 import { Contacts } from "./pages/Contacts";
 
 function App() {
+  let isMobile = useMediaQuery({query: '(max-width: 950px)'});
+
   return (
     <>
-      <Navbar />
+      <Navbar isMobile={isMobile} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
@@ -21,7 +24,7 @@ function App() {
         <Route path="/contacts" element={<Contacts />}></Route>
         {/* <Route exact path="/index" render={() => {window.location.href="/index.html"}} /> */}
       </Routes>
-      <Footer />
+      <Footer isMobile={isMobile} />
     </>
   );
 }
