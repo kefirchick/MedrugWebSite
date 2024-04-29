@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useMemo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { NavbarHead } from './NavbarHead';
 import { NavbarMenu } from './NavbarMenu';
@@ -11,15 +12,18 @@ const Navbar = () => {
     setMenuHidden(isMenuHidden => !isMenuHidden);
   };
 
-  const style = () => ({
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: isMobile ? 'column' : 'row',
-    alignItems: 'stretch',
-  })
+  const style = useMemo(
+    () => ({
+      display: 'flex',
+      justifyContent: 'space-between',
+      flexDirection: isMobile ? 'column' : 'row',
+      alignItems: 'stretch',
+    }),
+    [isMobile]
+  )
 
   return (
-    <nav style={style()}>
+    <nav style={style}>
       <NavbarHead isMobile={isMobile} handleToggler={handleToggler} />
       <NavbarMenu isMobile={isMobile} isMenuHidden={isMenuHidden} />
     </nav>
