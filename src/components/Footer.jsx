@@ -10,7 +10,7 @@ const style = {
 }
 
 const spanStyle = {
-  color: 'teal',
+  color: 'lightseagreen',
   fontWeight: 'bold'
 }
 
@@ -51,10 +51,10 @@ const aboutStyle = useMemo(
         <a href="mailto:info@medrug.kz">info@medrug.kz</a>
       </div>
       <div style={{flex: '0 0 80px', margin: 20}}>
-        <FaWhatsappSquare size={40} color={'teal'} />
-        <FaFacebookSquare size={40} color={'teal'} />
-        <FaInstagramSquare size={40} color={'teal'} />
-        <FaYoutubeSquare size={40} color={'teal'} />
+        <FaWhatsappSquare size={40} color={'lightseagreen'} />
+        <FaFacebookSquare size={40} color={'lightseagreen'} />
+        <FaInstagramSquare size={40} color={'lightseagreen'} />
+        <FaYoutubeSquare size={40} color={'lightseagreen'} />
       </div>
     </div>
   );

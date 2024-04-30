@@ -4,7 +4,8 @@ import endoscopyImg from '../img/home/endoscopy.jpg';
 
 const style = {
   display:'flex',
-  justifyContent:'space-evenly'
+  justifyContent:'space-evenly',
+  flexWrap: 'wrap'
 }
 
 const wrapperStyle = {
@@ -24,11 +25,11 @@ const imgStyle = {
 const Home = () => {
   return (
     <div style={style} >
-      <Link style={wrapperStyle} to='/catalog'  >
+      <Link className="animateUp" style={wrapperStyle} to='/catalog'  >
         <img style={imgStyle} src={ultrasoundImg} alt={''} />
         <h3>УЛЬТРАЗВУКОВЫЕ СИСТЕМЫ</h3>
       </Link>
-      <Link style={wrapperStyle} to='/catalog' >
+      <Link className="animateUp" style={wrapperStyle} to='/catalog' >
         <img style={imgStyle} src={endoscopyImg} alt={''} />
         <h3>ЭНДОСКОПИЧЕСКИЕ СИСТЕМЫ</h3>
       </Link>
