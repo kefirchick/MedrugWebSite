@@ -13,7 +13,8 @@ const CatalogMenu = ({isMobile, isCatalogHidden, setCatalogHidden}) => {
       height: isCatalogHidden ? 0 : 300,
       transition: 'height .3s',
       boxShadow: isMobile ? 'none' : '0px 10px 20px rgba(0, 0, 0, 0.1)',
-      marginLeft: isMobile ? 20 : 0
+      marginLeft: isMobile ? 20 : 0,
+      zIndex: 1
     }),
     [isMobile, isCatalogHidden]
   )
