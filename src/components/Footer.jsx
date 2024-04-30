@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaWhatsappSquare, FaFacebookSquare, FaInstagramSquare, FaYoutubeSquare } from "react-icons/fa"
 
 const style = {
@@ -38,10 +38,10 @@ const aboutStyle = useMemo(
         <p>Являясь дистрибьютором и партнером <span style={spanStyle}> SonoScape</span> на территории Республики Казахстан, <strong>ТОО «Медруг»</strong>, обладает доступными ценами на инновационное, высокопроизводительное оборудование для УЗИ-диагностики и видеоэндоскопии.</p>
       </div>
       <div style={menuStyle}>
-        <NavLink to="/about">О компании</NavLink>
-        <NavLink to="/news">Новости</NavLink>
-        <NavLink to="/service">Услуги</NavLink>
-        <NavLink to="/contacts">Контакты</NavLink>
+        <Link to="/about">О компании</Link>
+        <Link to="/news">Новости</Link>
+        <Link to="/service">Услуги</Link>
+        <Link to="/contacts">Контакты</Link>
       </div>
       <div style={{flex: '1 0 160px', margin: 20}}>
         <h4>Телефон:</h4>
