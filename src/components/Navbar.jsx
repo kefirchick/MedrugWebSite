@@ -16,7 +16,7 @@ const Navbar = ({isMobile}) => {
       justifyContent: 'space-between',
       flexDirection: isMobile ? 'column' : 'row',
       alignItems: 'stretch',
-      boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.1)'
+      boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.1)',
     }),
     [isMobile]
   )
