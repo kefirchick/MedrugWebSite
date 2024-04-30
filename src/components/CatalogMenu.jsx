@@ -4,11 +4,16 @@ import { NavLink } from "react-router-dom";
 const CatalogMenu = ({isMobile, isCatalogHidden, setCatalogHidden}) => {
   const style = useMemo(
     () => ({
-      display: isCatalogHidden ? 'none' : 'flex',
+      display: 'flex',
       flexDirection: 'column',
       position: isMobile ? 'static' : 'absolute',
       top: 90,
-      backgroundColor: 'white'
+      backgroundColor: 'white',
+      overflow: 'hidden',
+      height: isCatalogHidden ? 0 : 300,
+      transition: 'height .3s',
+      boxShadow: isMobile ? 'none' : '0px 10px 20px rgba(0, 0, 0, 0.1)',
+      marginLeft: isMobile ? 20 : 0
     }),
     [isMobile, isCatalogHidden]
   )
