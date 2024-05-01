@@ -11,7 +11,7 @@ const PanelService = ({caption, Img, children}) => {
       transition: '.3s',
       width: 200,
       height: 200,
-      padding: 20,
+      padding: '20px 5px',
       textAlign: 'center'
     }),
     [isHovered]
@@ -22,7 +22,7 @@ const PanelService = ({caption, Img, children}) => {
       color: isHovered ? 'rgba(0, 0, 0, 0)' : 'rgba(0, 0, 0, 1)',
       transition: '.3s',
       position: 'absolute',
-      width: 160,
+      width: 190,
       height: 160,
       display: 'flex',
       flexDirection: 'column',
