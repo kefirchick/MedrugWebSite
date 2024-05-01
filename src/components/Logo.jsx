@@ -14,7 +14,6 @@ const style = {
 const Logo = () => {
   return (
       <NavLink style={style} to="/"></NavLink>
-      // <a style={style} href="/index.html"></a>
   );
 }
 

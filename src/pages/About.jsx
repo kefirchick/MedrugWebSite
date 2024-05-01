@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 
 const animationLength = 20;
 
+const style = {
+  textAlign: 'center',
+  margin: 20,
+  width: '100%'
+}
+
 const About = () => {
   const [numbers, setNumbers] = useState([0, 0, 0]);
   const [animationStep, setAnimationStep] = useState(1);
@@ -22,13 +28,13 @@ const About = () => {
   }, [animationStep]);
 
   return (
-    <table style={{textAlign: 'center', margin: 20}}>
+    <table style={style}>
       <caption><h1>SonoScape</h1></caption>
       <tr>
         <td style={{width: '50%'}}>
           <h2>По всему миру</h2>
         </td>
-        <td colspan="2">
+        <td colSpan="2">
           <h2>Общее число специалистов:</h2>
         </td>
       </tr>
