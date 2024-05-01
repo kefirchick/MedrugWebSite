@@ -7,6 +7,7 @@ import { BsTruck } from "react-icons/bs";
 const style = {
   display: 'flex',
   justifyContent: 'space-evenly',
+  flexWrap: 'wrap',
   margin: 20
 }
 
