@@ -45,8 +45,8 @@ const aboutStyle = useMemo(
       </div>
       <div style={{flex: '1 0 160px', margin: 20}}>
         <h4>Телефон:</h4>
-        <p>+7 700 680-99-11</p>
-        <p>+7 775 192-99-11</p><br/>
+        <a href='tel:+77006809911'>+7 700 680 99 11</a><br/>
+        <a href='tel:+77751929911'>+7 775 192 99 11</a><br/><br/>
         <h4>E-mail:</h4>
         <a href="mailto:info@medrug.kz">info@medrug.kz</a>
       </div>
