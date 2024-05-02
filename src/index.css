@@ -17,16 +17,16 @@ h2 {
 
 td {
   padding: 5px 20px;
-
 }
 
 a {
-  color: dimgray;
+  color: black;
   text-decoration: none;
 }
 
 nav a {
   margin: 16px;
+  color: dimgray;
 }
 
 nav a:hover {
@@ -36,10 +36,5 @@ nav a:hover {
 
 nav a.active {
   color:lightseagreen;
-  transition: .3s;
-}
-
-.animateUp:hover {
-  transform: translateY(-10px);
   transition: .3s;
 }

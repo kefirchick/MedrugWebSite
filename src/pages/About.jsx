@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import banner from '../img/banners/about.jpg';
 
 const animationLength = 20;
 
@@ -28,32 +29,36 @@ const About = () => {
   }, [animationStep]);
 
   return (
-    <table style={style}>
-      <caption><h1>SonoScape</h1></caption>
-      <tr>
-        <td style={{width: '50%'}}>
-          <h2>По всему миру</h2>
-        </td>
-        <td colSpan="2">
-          <h2>Общее число специалистов:</h2>
-        </td>
-      </tr>
-      <tr>
-        <td><p>имеет представительства более чем в</p></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><h1>{numbers[0]}</h1></td>
-        <td><h1>{numbers[1]}</h1></td>
-        <td><h1>{numbers[2]}</h1></td>
-      </tr>
-      <tr>
-        <td><p>странах мира.</p></td>
-        <td><p>вовлеченных только в разработки оборудования.</p></td>
-        <td><p>научно-исследовательских центров.</p></td>
-      </tr>
-    </table>
+    <div>
+      <img src={banner} style={{width: '100%'}} alt='banner' />
+      
+      <table style={style}>
+        <caption><h1>SonoScape</h1></caption>
+        <tr>
+          <td style={{width: '50%'}}>
+            <h2>По всему миру</h2>
+          </td>
+          <td colSpan="2">
+            <h2>Общее число специалистов:</h2>
+          </td>
+        </tr>
+        <tr>
+          <td><p>имеет представительства более чем в</p></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><h1>{numbers[0]}</h1></td>
+          <td><h1>{numbers[1]}</h1></td>
+          <td><h1>{numbers[2]}</h1></td>
+        </tr>
+        <tr>
+          <td><p>странах мира.</p></td>
+          <td><p>вовлеченных только в разработки оборудования.</p></td>
+          <td><p>научно-исследовательских центров.</p></td>
+        </tr>
+      </table>
+    </div>
   );
 }
 

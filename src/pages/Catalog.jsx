@@ -1,7 +1,9 @@
+import banner from '../img/banners/ultrasound.jpg';
+
 const Catalog = () => {
   return (
     <div>
-      <div><p>CatalogCatalog</p></div>
+      <img src={banner} style={{width: '100%'}} alt='banner' />
     </div>
   );
 }
