@@ -14,6 +14,7 @@ const PanelContacts = ({caption, Img, children}) => {
       transition: '1s',
       width: 200,
       height: 200,
+      textAlign: 'center'
     }),
     [isHovered]
   )

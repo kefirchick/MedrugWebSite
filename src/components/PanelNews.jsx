@@ -9,7 +9,7 @@ const PanelNews = ({caption, image, children}) => {
     flexDirection: isFolded ? 'row' : 'column',
     alignItems: isFolded ? 'flex-start' : 'center',
     height: isFolded ? 200 : 'auto',
-    width: isFolded ? "46%" : '100%',
+    flex: isFolded ? '1 0 400px' : '0 0 100%',
     overflow: 'hidden',
     color: isHovered && isFolded ? 'white' : 'black',
     backgroundColor: isHovered && isFolded ? 'lightseagreen' : 'transparent',
