@@ -7,7 +7,7 @@ const db = [
 ]
 
 for (let i in db) {
-    fs.readFile("products/html/" + db[i].id + ".html", function(error, data){
+    fs.readFile("./src/server/products/html/" + db[i].id + ".html", function(error, data){
         if (error) return console.log(error);
         db[i].html = data.toString();
     });
