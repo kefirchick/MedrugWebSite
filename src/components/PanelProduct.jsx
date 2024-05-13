@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useMemo } from 'react';
 
-const PanelProduct = ({caption, children}) => {
+const PanelProduct = ({caption, image, children}) => {
   const [isHovered, setHovered] = useState(false);
   const [isFolded, setFolded] = useState(true);
 
@@ -22,6 +22,16 @@ const PanelProduct = ({caption, children}) => {
     [isHovered, isFolded]
   )
 
+  const imgStyle = useMemo(
+    () => ({
+      width: isFolded ? 200 : '40%',
+      height: isFolded ? 200 : 'auto',
+      objectFit: 'cover',
+      transition: '.3s'
+    }),
+    [isFolded]
+  )
+  
   const handleFold = () => {
     setFolded(isFolded => !isFolded);
   };
@@ -33,6 +43,8 @@ const PanelProduct = ({caption, children}) => {
       onClick={handleFold}
       style={style}
     >
+      <img style={imgStyle} src={require(image)} alt={caption} />
+    {/* <img style={imgStyle} src={require('../server/products/img/aspirator/small.jpg')} alt={caption} /> */}
       <div style={{margin: 20, textAlign: 'center'}} >
         <h3>{caption}</h3><br />
         {children}

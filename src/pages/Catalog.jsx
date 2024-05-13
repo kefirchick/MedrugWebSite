@@ -9,7 +9,6 @@ const Catalog = () => {
     fetch("http://localhost:5000/api")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setProducts(data);
       })
       .catch((err) => console.log(err));
@@ -19,7 +18,7 @@ const Catalog = () => {
     <div>
       <img src={banner} style={{width: '100%'}} alt='banner' />
       {products.map(product => (
-        <PanelProduct caption={product?.id}>
+        <PanelProduct caption={product?.caption} image={product?.imgSmall}>
           <div dangerouslySetInnerHTML={{__html: product?.html}} />
         </PanelProduct>
       ))}
