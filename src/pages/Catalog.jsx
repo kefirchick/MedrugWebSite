@@ -1,9 +1,28 @@
+import { useEffect, useState } from 'react';
+import { PanelProduct } from '../components/PanelProduct';
 import banner from '../img/banners/ultrasound.jpg';
 
 const Catalog = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setProducts(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div>
       <img src={banner} style={{width: '100%'}} alt='banner' />
+      {products.map(product => (
+        <PanelProduct caption={product?.id}>
+          <div dangerouslySetInnerHTML={{__html: product?.html}} />
+        </PanelProduct>
+      ))}
     </div>
   );
 }
