@@ -8,14 +8,14 @@ const PanelProduct = ({id, caption, children}) => {
   const style = useMemo(
     () => ({
       display: 'flex',
-      flexDirection: isFolded ? 'row' : 'column',
-      alignItems: isFolded ? 'flex-start' : 'center',
-      height: isFolded ? 200 : 'auto',
-      width: isFolded ? 200 : '100%',
-      flex: isFolded ? '1 0 400px' : '0 0 100%',
-      overflow: 'hidden',
-      color: isHovered && isFolded ? 'white' : 'black',
-      backgroundColor: isHovered && isFolded ? 'lightseagreen' : 'transparent',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center',
+      height: isFolded ? 350 : 'auto',
+      width: isFolded ? 250 : '100%',
+      translate: isHovered && isFolded ? '0 -5px 0' : '0 0 0',
+      boxShadow: isHovered && isFolded ? '0 10px 10px rgba(0, 0, 0, 0.2)' : '0 0 0 rgba(0, 0, 0, 0)',
       transition: '.3s',
       cursor: 'pointer',
       margin: '2%'
@@ -26,7 +26,6 @@ const PanelProduct = ({id, caption, children}) => {
   const imgStyle = useMemo(
     () => ({
       width: isFolded ? 200 : '40%',
-      height: isFolded ? 200 : 'auto',
       objectFit: 'cover',
       transition: '.3s'
     }),
@@ -53,10 +52,10 @@ const PanelProduct = ({id, caption, children}) => {
         src={process.env.PUBLIC_URL + '/img/' + id + image}
         alt={caption}
       />
-      <div style={{margin: 20, textAlign: 'center'}} >
         <h3>{caption}</h3><br />
-        {children}
-      </div>
+        <div style={{display: isFolded ? 'none' : 'block'}}>
+         {children}
+        </div>
     </div>
   );
 }

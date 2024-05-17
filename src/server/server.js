@@ -13,8 +13,6 @@ for (let i in db) {
         if (error) return console.log(error);
         db[i].html = data.toString();
     });
-    // db[i].imgSmall = "../server/products/img/" + db[i].id + "/small.jpg";
-    // db[i].imgBig = "../server/products/img/" + db[i].id + "/big.jpg";
 }
 
 app.get("/api", (req, res) => {
