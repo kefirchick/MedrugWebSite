@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useMemo } from 'react';
 
-const PanelProduct = ({caption, image, children}) => {
+const PanelProduct = ({id, caption, children}) => {
   const [isHovered, setHovered] = useState(false);
   const [isFolded, setFolded] = useState(true);
 
@@ -11,6 +11,7 @@ const PanelProduct = ({caption, image, children}) => {
       flexDirection: isFolded ? 'row' : 'column',
       alignItems: isFolded ? 'flex-start' : 'center',
       height: isFolded ? 200 : 'auto',
+      width: isFolded ? 200 : '100%',
       flex: isFolded ? '1 0 400px' : '0 0 100%',
       overflow: 'hidden',
       color: isHovered && isFolded ? 'white' : 'black',
@@ -31,6 +32,10 @@ const PanelProduct = ({caption, image, children}) => {
     }),
     [isFolded]
   )
+
+  const image = useMemo(() => {
+    return isFolded ? '/small.jpg' : '/big.jpg';
+  }, [isFolded]);
   
   const handleFold = () => {
     setFolded(isFolded => !isFolded);
@@ -43,8 +48,11 @@ const PanelProduct = ({caption, image, children}) => {
       onClick={handleFold}
       style={style}
     >
-      <img style={imgStyle} src={require(image)} alt={caption} />
-    {/* <img style={imgStyle} src={require('../server/products/img/aspirator/small.jpg')} alt={caption} /> */}
+      <img
+        style={imgStyle}
+        src={process.env.PUBLIC_URL + '/img/' + id + image}
+        alt={caption}
+      />
       <div style={{margin: 20, textAlign: 'center'}} >
         <h3>{caption}</h3><br />
         {children}

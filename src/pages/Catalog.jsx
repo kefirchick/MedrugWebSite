@@ -18,7 +18,7 @@ const Catalog = () => {
     <div>
       <img src={banner} style={{width: '100%'}} alt='banner' />
       {products.map(product => (
-        <PanelProduct caption={product?.caption} image={product?.imgSmall}>
+        <PanelProduct id={product?.id} caption={product?.caption}>
           <div dangerouslySetInnerHTML={{__html: product?.html}} />
         </PanelProduct>
       ))}
