@@ -7,13 +7,14 @@ const PanelProduct = ({id, caption, children}) => {
 
   const style = useMemo(
     () => ({
+      backgroundColor: 'white',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
+      justifyContent: 'space-evenly',
       alignItems: 'center',
       textAlign: 'center',
-      height: isFolded ? 350 : 'auto',
-      width: isFolded ? 250 : '100%',
+      height: isFolded ? 360 : 'auto',
+      width: isFolded ? 270 : '100%',
       translate: isHovered && isFolded ? '0 -5px 0' : '0 0 0',
       boxShadow: isHovered && isFolded ? '0 10px 10px rgba(0, 0, 0, 0.2)' : '0 0 0 rgba(0, 0, 0, 0)',
       transition: '.3s',
