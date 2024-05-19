@@ -14,10 +14,9 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/news" element={<News />}></Route>
-        <Route path="/catalog" element={<Catalog />}></Route>
+        <Route path="/catalog/:tag" element={<Catalog />}></Route>
         <Route path="/service" element={<Service />}></Route>
         <Route path="/contacts" element={<Contacts />}></Route>
-        {/* <Route exact path="/index" render={() => {window.location.href="/index.html"}} /> */}
       </Routes>
       <Footer isMobile={isMobile} />
     </>

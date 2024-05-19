@@ -25,12 +25,12 @@ const CatalogMenu = ({isMobile, isCatalogHidden, setCatalogHidden}) => {
       onMouseEnter={ () => {if (!isMobile) setCatalogHidden(false)} }
       onMouseLeave={ () => {if (!isMobile) setCatalogHidden(true)} }
     >
-      <NavLink to="/catalog">УЗИ</NavLink>
-      <NavLink to="/catalog">УЗ ДАТЧИКИ</NavLink>
-      <NavLink to="/catalog">ЭНДОСКОПИЯ</NavLink>
-      <NavLink to="/catalog">ИНСТРУМЕНТЫ</NavLink>
-      <NavLink to="/catalog">ХЕЛИКОБАКТЕР</NavLink>
-      <NavLink to="/catalog">ТЕСТЫ ХЕЛИКОБАКТЕР</NavLink>
+      <NavLink to="/catalog/ultrasound">УЗИ</NavLink>
+      <NavLink to="/catalog/probes">УЗ ДАТЧИКИ</NavLink>
+      <NavLink to="/catalog/endoscopy">ЭНДОСКОПИЯ</NavLink>
+      <NavLink to="/catalog/instruments">ИНСТРУМЕНТЫ</NavLink>
+      <NavLink to="/catalog/helicobacter">ХЕЛИКОБАКТЕР</NavLink>
+      <NavLink to="/catalog/tests">ТЕСТЫ ХЕЛИКОБАКТЕР</NavLink>
     </div>
   );
 }

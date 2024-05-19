@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'
 import { PanelProduct } from '../components/PanelProduct';
 import banner from '../img/banners/ultrasound.jpg';
 
 const Catalog = () => {
+  const tag = useParams().tag;
   const [products, setProducts] = useState([]);
 
   const style = {
@@ -21,14 +23,18 @@ const Catalog = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  console.log(useParams().tag);
+
   return (
     <div style ={style}>
       <img src={banner} style={{width: '100%'}} alt='banner' />
-      {products.map(product => (
-        <PanelProduct id={product?.id} caption={product?.caption}>
-          <div dangerouslySetInnerHTML={{__html: product?.html}} />
-        </PanelProduct>
-      ))}
+      {products
+        .filter(product => product?.tags[0] === tag)
+        .map(product => (
+          <PanelProduct id={product?.id} caption={product?.caption}>
+            <div dangerouslySetInnerHTML={{__html: product?.html}} />
+          </PanelProduct>
+        ))}
     </div>
   );
 }
