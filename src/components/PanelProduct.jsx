@@ -1,9 +1,10 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { BuyButton } from './BuyButton';
 
 const PanelProduct = ({id, caption, children}) => {
   const [isHovered, setHovered] = useState(false);
   const [isFolded, setFolded] = useState(true);
+  const ref = useRef(0);
 
   const style = useMemo(
     () => ({
@@ -50,6 +51,9 @@ const PanelProduct = ({id, caption, children}) => {
   
   const handleFold = () => {
     setFolded(isFolded => !isFolded);
+    setTimeout(() => {
+      if (isFolded) ref.current.scrollIntoView({behavior: 'smooth' , block: 'start'});
+    }, 300);
   };
 
   return (
@@ -58,6 +62,7 @@ const PanelProduct = ({id, caption, children}) => {
       onMouseLeave={() => setHovered(false)}
       onClick={handleFold}
       style={style}
+      ref={ref}
     >
       <img
         style={imgStyle}

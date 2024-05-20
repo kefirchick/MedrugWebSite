@@ -23,8 +23,6 @@ const Catalog = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(useParams().tag);
-
   return (
     <div style ={style}>
       <img src={banner} style={{width: '100%'}} alt='banner' />
