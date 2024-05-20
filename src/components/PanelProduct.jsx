@@ -19,7 +19,8 @@ const PanelProduct = ({id, caption, children}) => {
       boxShadow: isHovered && isFolded ? '0 10px 10px rgba(0, 0, 0, 0.2)' : '0 0 0 rgba(0, 0, 0, 0)',
       transition: '.3s',
       cursor: isFolded ? 'pointer' : 'auto',
-      margin: '2%'
+      margin: "20px 10px",
+      padding: 10
     }),
     [isHovered, isFolded]
   )

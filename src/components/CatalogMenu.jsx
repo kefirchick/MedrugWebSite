@@ -30,7 +30,7 @@ const CatalogMenu = ({isMobile, isCatalogHidden, setCatalogHidden}) => {
       <NavLink to="/catalog/endoscopy">ЭНДОСКОПИЯ</NavLink>
       <NavLink to="/catalog/instruments">ИНСТРУМЕНТЫ</NavLink>
       <NavLink to="/catalog/helicobacter">ХЕЛИКОБАКТЕР</NavLink>
-      <NavLink to="/catalog/tests">ТЕСТЫ ХЕЛИКОБАКТЕР</NavLink>
+      <NavLink to="/catalog/veterinary">ВЕТЕРИНАРИЯ</NavLink>
     </div>
   );
 }
