@@ -9,7 +9,8 @@ const style = {
   borderWidth: 5,
   borderRadius: 15,
   borderColor: 'lightseagreen',
-  fontWeight: 'bold'
+  fontWeight: 'bold',
+  margin: 20
 }
 
 const BuyButton = ({product}) => {
