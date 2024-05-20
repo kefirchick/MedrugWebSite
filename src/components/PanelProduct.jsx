@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useMemo } from 'react';
+import { useState, useMemo } from 'react';
+import { BuyButton } from './BuyButton';
 
 const PanelProduct = ({id, caption, children}) => {
   const [isHovered, setHovered] = useState(false);
@@ -18,7 +18,7 @@ const PanelProduct = ({id, caption, children}) => {
       translate: isHovered && isFolded ? '0 -5px 0' : '0 0 0',
       boxShadow: isHovered && isFolded ? '0 10px 10px rgba(0, 0, 0, 0.2)' : '0 0 0 rgba(0, 0, 0, 0)',
       transition: '.3s',
-      cursor: 'pointer',
+      cursor: isFolded ? 'pointer' : 'auto',
       margin: '2%'
     }),
     [isHovered, isFolded]
@@ -29,6 +29,16 @@ const PanelProduct = ({id, caption, children}) => {
       width: isFolded ? 200 : '40%',
       objectFit: 'cover',
       transition: '.3s'
+    }),
+    [isFolded]
+  )
+
+  const descriptionStyle = useMemo(
+    () => ({
+      display: isFolded ? 'none' : 'flex',
+      textAlign: 'center',
+      flexDirection: 'column',
+      alignItems: 'center',
     }),
     [isFolded]
   )
@@ -54,8 +64,9 @@ const PanelProduct = ({id, caption, children}) => {
         alt={caption}
       />
         <h3>{caption}</h3><br />
-        <div style={{display: isFolded ? 'none' : 'block'}}>
-         {children}
+        <div style={descriptionStyle}>
+          {children}
+          <BuyButton product={caption} />
         </div>
     </div>
   );
