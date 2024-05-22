@@ -5,7 +5,8 @@ const ProductImage = ({isFolded, id, caption}) => {
     () => ({
       width: isFolded ? 200 : '40%',
       objectFit: 'cover',
-      transition: '.3s'
+      transition: '.3s',
+      margin: 20
     }),
     [isFolded]
   )

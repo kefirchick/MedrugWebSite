@@ -11,9 +11,9 @@ const PanelProduct = ({id, caption, children}) => {
     () => ({
       backgroundColor: 'white',
       display: 'flex',
-      flexDirection: 'column',
+      flexDirection: isFolded ? 'column' : 'row',
       justifyContent: 'space-evenly',
-      alignItems: 'center',
+      alignItems: isFolded ? 'center' : 'flex-start',
       textAlign: 'center',
       height: isFolded ? 360 : 'auto',
       width: isFolded ? 270 : '100%',
@@ -43,7 +43,7 @@ const PanelProduct = ({id, caption, children}) => {
       ref={ref}
     >
       <ProductImage isFolded={isFolded} id={id} caption={caption} />
-      <h3>{caption}</h3><br />
+      <h3 style={{display: isFolded? 'block' : 'none'}}>{caption}</h3><br />
       <Description isFolded={isFolded} caption={caption} description={children} />
     </div>
   );
