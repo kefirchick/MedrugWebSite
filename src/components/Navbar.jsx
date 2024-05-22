@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useMemo } from 'react';
 import { NavbarHead } from './NavbarHead';
 import { NavbarMenu } from './NavbarMenu';
+import { TbBackground } from 'react-icons/tb';
 
 const Navbar = ({isMobile}) => {
   const [isMenuHidden, setMenuHidden] = useState(true);
@@ -12,6 +13,10 @@ const Navbar = ({isMobile}) => {
 
   const style = useMemo(
     () => ({
+      position: 'sticky',
+      top: 0,
+      backgroundColor: 'white',
+      zIndex: 1,
       display: 'flex',
       justifyContent: 'space-between',
       flexDirection: isMobile ? 'column' : 'row',
