@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef } from 'react';
-import { BuyButton } from './BuyButton';
+import { Description } from './Description';
+import { ProductImage } from './ProductImage';
 
 const PanelProduct = ({id, caption, children}) => {
   const [isHovered, setHovered] = useState(false);
@@ -25,29 +26,6 @@ const PanelProduct = ({id, caption, children}) => {
     }),
     [isHovered, isFolded]
   )
-
-  const imgStyle = useMemo(
-    () => ({
-      width: isFolded ? 200 : '40%',
-      objectFit: 'cover',
-      transition: '.3s'
-    }),
-    [isFolded]
-  )
-
-  const descriptionStyle = useMemo(
-    () => ({
-      display: isFolded ? 'none' : 'flex',
-      textAlign: 'center',
-      flexDirection: 'column',
-      alignItems: 'center',
-    }),
-    [isFolded]
-  )
-
-  const image = useMemo(() => {
-    return isFolded ? '/small.jpg' : '/big.jpg';
-  }, [isFolded]);
   
   const handleFold = () => {
     setFolded(isFolded => !isFolded);
@@ -64,16 +42,9 @@ const PanelProduct = ({id, caption, children}) => {
       style={style}
       ref={ref}
     >
-      <img
-        style={imgStyle}
-        src={process.env.PUBLIC_URL + '/img/' + id + image}
-        alt={caption}
-      />
-        <h3>{caption}</h3><br />
-        <div style={descriptionStyle}>
-          {children}
-          <BuyButton product={caption} />
-        </div>
+      <ProductImage isFolded={isFolded} id={id} caption={caption} />
+      <h3>{caption}</h3><br />
+      <Description isFolded={isFolded} caption={caption} description={children} />
     </div>
   );
 }
