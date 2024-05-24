@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from "react-router-dom";
-import { FaWhatsappSquare, FaFacebookSquare, FaInstagramSquare, FaYoutubeSquare } from "react-icons/fa"
-
+import { SocialsWidget } from './SocialsWidget';
 const style = {
   display: 'flex',
   flexDirection: 'row',
@@ -50,12 +49,7 @@ const aboutStyle = useMemo(
         <h4>E-mail:</h4>
         <a href="mailto:info@medrug.kz">info@medrug.kz</a>
       </div>
-      <div style={{flex: '0 0 80px', margin: 20}}>
-        <FaWhatsappSquare size={40} color={'lightseagreen'} />
-        <FaFacebookSquare size={40} color={'lightseagreen'} />
-        <FaInstagramSquare size={40} color={'lightseagreen'} />
-        <FaYoutubeSquare size={40} color={'lightseagreen'} />
-      </div>
+      <SocialsWidget />
     </div>
   );
 }
