@@ -12,7 +12,7 @@ const style = {
 
 const News = () => {
   return (
-    <div>
+    <div style={{overflow: 'hidden'}}>
       <img src={banner} style={{width: '100%'}} alt='banner' />
       <div style={style}>
         <PanelNews caption={'IX СЪЕЗД ОНКОЛОГОВ И РАДИОЛОГОВ КАЗАХСТАНА'} image={img0} >

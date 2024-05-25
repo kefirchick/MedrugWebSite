@@ -6,7 +6,7 @@ const animationLength = 20;
 const style = {
   textAlign: 'center',
   margin: 20,
-  width: '100%'
+  width: '100%',
 }
 
 const About = () => {
@@ -29,7 +29,7 @@ const About = () => {
   }, [animationStep]);
 
   return (
-    <div>
+    <div style={{overflow: 'hidden'}}>
       <img src={banner} style={{width: '100%'}} alt='banner' />
       
       <table style={style}>

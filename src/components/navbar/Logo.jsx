@@ -7,7 +7,7 @@ const style = {
   backgroundSize: '100%',
   backgroundPosition: 'center',
   margin: '0px 20px',
-  width: 100,
+  width: 160,
   height: 90,
 }
 
