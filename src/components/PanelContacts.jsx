@@ -9,12 +9,13 @@ const PanelContacts = ({caption, Img, children}) => {
       backgroundColor: isHovered ? 'transparent' : 'lightgrey',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-evenly',
+      // justifyContent: 'center',
       alignItems: 'center',
       transition: '1s',
-      width: 200,
-      height: 200,
-      textAlign: 'center'
+      width: 280,
+      height: 280,
+      textAlign: 'center',
+      margin: 20
     }),
     [isHovered]
   )
@@ -25,8 +26,11 @@ const PanelContacts = ({caption, Img, children}) => {
       onMouseLeave={() => setHovered(false)}
       style={style}
     >
+      <br /><br />
       <Img size={60} />
+      <br />
       <h3>{caption}</h3>
+      <br />
       {children}
     </div>
   );

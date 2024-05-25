@@ -6,7 +6,7 @@ const style = {
   backgroundRepeat: 'no-repeat',
   backgroundSize: '100%',
   backgroundPosition: 'center',
-  margin: '0px 20px',
+  margin: '0px 40px',
   width: 160,
   height: 90,
 }
