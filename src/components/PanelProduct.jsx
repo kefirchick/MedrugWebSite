@@ -15,7 +15,7 @@ const PanelProduct = ({id, caption, children}) => {
       justifyContent: 'space-evenly',
       alignItems: isFolded ? 'center' : 'flex-start',
       textAlign: 'center',
-      height: isFolded ? 360 : 'auto',
+      height: isFolded ? 370 : 'auto',
       width: isFolded ? 270 : '100%',
       translate: isHovered && isFolded ? '0 -5px 0' : '0 0 0',
       boxShadow: isHovered && isFolded ? '0 10px 10px rgba(0, 0, 0, 0.2)' : '0 0 0 rgba(0, 0, 0, 0)',

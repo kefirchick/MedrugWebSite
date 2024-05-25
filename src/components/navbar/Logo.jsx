@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import LogoImg from '../img/logocolor.png';
+import LogoImg from '../../img/logocolor.png';
 
 const style = {
   backgroundImage: `url(${LogoImg})`,

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useMemo } from 'react';
 import { NavbarHead } from './NavbarHead';
 import { NavbarMenu } from './NavbarMenu';
-import { TbBackground } from 'react-icons/tb';
 
 const Navbar = ({isMobile}) => {
   const [isMenuHidden, setMenuHidden] = useState(true);

@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useMediaQuery } from 'react-responsive';
-import { Navbar } from "./components/Navbar.jsx";
+import { Navbar } from "./components/navbar/Navbar.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { About, Catalog, Contacts, Home, News, Service } from "./pages/index.js";
 

@@ -5,7 +5,8 @@ const style = {
   display: 'flex',
   flexDirection: 'row',
   justifyContent: "space-between",
-  flexWrap: 'wrap'
+  flexWrap: 'wrap',
+  boxShadow: '0px -10px 20px rgba(0, 0, 0, 0.1)',
 }
 
 const spanStyle = {
