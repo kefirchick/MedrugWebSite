@@ -27,7 +27,8 @@ const aboutStyle = useMemo(
   () => ({
     display: isMobile ? 'none' : 'block',
     flex: '3 0 320px',
-    margin: 20,
+    maxWidth: 600,
+    margin: "20px 60px 20px 20px",
     textAlign: 'justify'
   }),
   [isMobile]
