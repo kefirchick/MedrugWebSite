@@ -1,5 +1,6 @@
 import ultrasoundImg from '../img/home/ultrasound.jpg';
 import endoscopyImg from '../img/home/endoscopy.jpg';
+import helicobacterImg from '../img/home/helicobacter.jpg';
 import { PanelLink } from "../components/PanelLink";
 
 const style = {
@@ -11,8 +12,9 @@ const style = {
 const Home = () => {
   return (
     <div style={style} >
-      <PanelLink name={'УЛЬТРАЗВУКОВЫЕ СИСТЕМЫ'} img={ultrasoundImg} link={'/catalog'} />
-      <PanelLink name={'ЭНДОСКОПИЧЕСКИЕ СИСТЕМЫ'} img={endoscopyImg} link={'/catalog'} />
+      <PanelLink name={'УЛЬТРАЗВУКОВЫЕ СИСТЕМЫ'} img={ultrasoundImg} link={'/catalog/ultrasound'} />
+      <PanelLink name={'ЭНДОСКОПИЧЕСКИЕ СИСТЕМЫ'} img={endoscopyImg} link={'/catalog/endoscopy'} />
+      <PanelLink name={'СИСТЕМЫ ДИАГНОСТИКИ HELICOBACTER PYLORY'} img={helicobacterImg} link={'/catalog/helicobacter'} />
     </div>
   );
 }

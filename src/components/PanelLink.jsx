@@ -16,7 +16,7 @@ const PanelLink = ({name, img, link}) => {
       display:'flex',
       flexDirection:'column',
       alignContent:"center",
-      width: 200,
+      width: 280,
       textAlign: 'center',
       transform: isHovered ? 'translateY(-10px)' : 'none',
       transition: '.3s',
