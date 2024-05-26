@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { PanelProduct } from '../components/PanelProduct';
 import banner from '../img/banners/ultrasound.jpg';
 
-const Catalog = () => {
+const Catalog = ({isMobile}) => {
   const tag = useParams().tag;
   const [products, setProducts] = useState([]);
 
@@ -29,7 +29,7 @@ const Catalog = () => {
       {products
         .filter(product => product?.tags[0] === tag)
         .map(product => (
-          <PanelProduct key={product?.id} id={product?.id} caption={product?.caption}>
+          <PanelProduct key={product?.id} id={product?.id} caption={product?.caption} isMobile={isMobile}>
             <div dangerouslySetInnerHTML={{__html: product?.html}} />
           </PanelProduct>
         ))}

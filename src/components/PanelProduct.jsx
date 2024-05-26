@@ -2,7 +2,7 @@ import { useState, useMemo, useRef } from 'react';
 import { Description } from './Description';
 import { ProductImage } from './ProductImage';
 
-const PanelProduct = ({id, caption, children}) => {
+const PanelProduct = ({id, caption, children, isMobile}) => {
   const [isHovered, setHovered] = useState(false);
   const [isFolded, setFolded] = useState(true);
   const ref = useRef(0);
@@ -11,9 +11,9 @@ const PanelProduct = ({id, caption, children}) => {
     () => ({
       backgroundColor: 'white',
       display: 'flex',
-      flexDirection: isFolded ? 'column' : 'row',
+      flexDirection: (isFolded || isMobile) ? 'column' : 'row',
       justifyContent: 'space-evenly',
-      alignItems: isFolded ? 'center' : 'flex-start',
+      alignItems: (isFolded || isMobile) ? 'center' : 'flex-start',
       textAlign: 'center',
       height: isFolded ? 370 : 'auto',
       width: isFolded ? 270 : '100%',
@@ -24,7 +24,7 @@ const PanelProduct = ({id, caption, children}) => {
       margin: "20px 10px",
       padding: 10
     }),
-    [isHovered, isFolded]
+    [isHovered, isFolded, isMobile]
   )
   
   const handleFold = () => {
