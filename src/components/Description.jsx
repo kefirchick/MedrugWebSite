@@ -1,5 +1,6 @@
 import { useMemo} from 'react';
 import { BuyButton } from './BuyButton';
+import { ServiceWidget } from './ServiceWidget';
 
 const Description = ({isFolded, caption, description}) => {
   const style = useMemo(
@@ -18,6 +19,7 @@ const Description = ({isFolded, caption, description}) => {
       <h2>{caption}</h2><br />
       {description}
       <BuyButton product={caption} />
+      <ServiceWidget />
     </div>
   );
 }

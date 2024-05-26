@@ -11,6 +11,7 @@ const PanelService = ({caption, Img, children}) => {
       transition: '.3s',
       width: 200,
       height: 200,
+      margin: 10,
       padding: '20px 5px',
       textAlign: 'center'
     }),
