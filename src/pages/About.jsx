@@ -1,4 +1,5 @@
 import banner from '../img/banners/about.jpg';
+import { LinkBlock } from "../components/LinkBlock";
 import { SonoscapeAnimation } from '../components/SonoscapeAnimation';
 
 const textStyle = {
@@ -19,12 +20,11 @@ const About = () => {
   return (
     <div>
       <img src={banner} style={{width: '100%'}} alt='banner' />
-
+      <LinkBlock />
       <div style={textStyle}>
-        <p style={{width: '50%'}}>Наша компания является дистрибьютором и партнером <span style={spanStyle}>SonoScape</span> на территории Республики Казахстан.
-        Мы предлагаем доступные цены на инновационное, высокопроизводительное оборудование.</p>
+        <p style={{width: '50%'}}><br/>Наша компания является дистрибьютором и партнером <span style={spanStyle}>SonoScape</span> на территории Республики Казахстан.
+        Мы предлагаем доступные цены на инновационное, высокопроизводительное оборудование.<br/><br/></p>
       </div>
-      
       <SonoscapeAnimation />
     </div>
   );
