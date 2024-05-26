@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Navbar } from "./components/navbar/Navbar.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { SocialsWidget } from './components/SocialsWidget';
-import { About, Catalog, Contacts, Home, News, Service } from "./pages/index.js";
+import { About, Catalog, Contacts, Home, News } from "./pages/index.js";
 
 function App() {
   let isMobile = useMediaQuery({query: '(max-width: 950px)'});
@@ -16,7 +16,6 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/news" element={<News />}></Route>
         <Route path="/catalog/:tag" element={<Catalog isMobile={isMobile} />}></Route>
-        <Route path="/service" element={<Service />}></Route>
         <Route path="/contacts" element={<Contacts />}></Route>
       </Routes>
       <Footer isMobile={isMobile} />

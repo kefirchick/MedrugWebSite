@@ -29,7 +29,6 @@ const NavbarMenu = ({isMobile, isMenuHidden}) => {
       <NavLink to="/about">О КОМПАНИИ</NavLink>
       <NavLink to="/news">НОВОСТИ</NavLink>
       <CatalogHead isMobile={isMobile} isMenuHidden={isMenuHidden} />
-      <NavLink to="/service">УСЛУГИ</NavLink>
       <NavLink to="/contacts">КОНТАКТЫ</NavLink>
     </div>
   );
