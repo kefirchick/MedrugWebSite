@@ -18,7 +18,7 @@ const PanelNews = ({isMobile, caption, id, children}) => {
       backgroundColor: isHovered && isFolded ? 'lightseagreen' : 'transparent',
       transition: '.3s',
       cursor: 'pointer',
-      margin: '2%'
+      margin: 10
     }),
     [isHovered, isFolded, isMobile]
   )

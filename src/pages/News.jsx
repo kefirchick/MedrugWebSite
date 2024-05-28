@@ -3,10 +3,9 @@ import { PanelNews } from '../components/PanelNews';
 import banner from '../img/banners/news.jpg';
 
 const style = {
-  width: '100%',
   margin: 20,
   display: 'flex',
-  flexWrap: 'wrap'
+  flexWrap: 'wrap',
 }
 
 const News = ({isMobile}) => {
