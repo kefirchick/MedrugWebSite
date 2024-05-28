@@ -1,37 +1,34 @@
+import { useEffect, useState } from 'react';
 import { PanelNews } from '../components/PanelNews';
 import banner from '../img/banners/news.jpg';
-import img0 from '../img/news/0.jpg';
-import img1 from '../img/news/1.jpg';
 
 const style = {
-  width: '100%',
   margin: 20,
   display: 'flex',
-  flexWrap: 'wrap'
+  flexWrap: 'wrap',
 }
 
-const News = () => {
+const News = ({isMobile}) => {
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/news")
+      .then((res) => res.json())
+      .then((data) => {
+        setNews(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div style={{overflow: 'hidden'}}>
       <img src={banner} style={{width: '100%'}} alt='banner' />
       <div style={style}>
-        <PanelNews caption={'IX СЪЕЗД ОНКОЛОГОВ И РАДИОЛОГОВ КАЗАХСТАНА'} image={img0} >
-          26 октября 2023 года компания Медруг приняла участие в IX СЪЕЗДЕ ОНКОЛОГОВ И РАДИОЛОГОВ КАЗАХСТАНА в Астане. Миссия конгресса - организовать среду для передачи опыта и знаний между всеми участниками конференции. Расширение знаний и обмен опытом позволяют избежать ошибок во врачебной практике и способствуют повышению качества онкопомощи населению.
-        </PanelNews>
-        <PanelNews caption={'VIII Центрально-Азиатская гастроэнтерологическая неделя'} image={img1} >
-          5 октября 2023 года наша компания приняла участие VIII Центрально-Азиатской гастроэнтерологической неделе. Научная программа Конгресса включает пленарные заседания и научные симпозиумы по следующим темам:<br/><br/>
-          Хронический вирусный гепатит; <br/>
-          Неалкогольная и алкогольная жировая болезнь печени;<br/>
-          Аутоиммунные заболевания печени;<br/>
-          Лекарственно-индуцированные повреждения печени;<br/>
-          Цирроз печени и его осложнения;<br/>
-          Функциональные заболевания органов пищеварения;<br/>
-          Заболевания верхнего отдела желудочного кишечного тракта;<br/>
-          Воспалительные заболевания кишечника;<br/>
-          Инфекционная гастроэнтерология;<br/>
-          Хирургическая гастроэнтерология;<br/>
-          Канцерогенез и канцеропревенция в гастроэнтерологии и гепатологии.
-        </PanelNews>
+        {news.map(record => (
+          <PanelNews key={record?.id} isMobile={isMobile} id={record?.id} caption={record?.caption}>
+            <div dangerouslySetInnerHTML={{__html: record?.html}} />
+          </PanelNews>
+        ))}
       </div>
     </div>
   );

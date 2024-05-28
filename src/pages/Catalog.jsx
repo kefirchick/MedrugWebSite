@@ -3,19 +3,19 @@ import { useParams } from 'react-router-dom'
 import { PanelProduct } from '../components/PanelProduct';
 import banner from '../img/banners/ultrasound.jpg';
 
+const style = {
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  flexWrap: 'wrap',
+  backgroundColor: 'whitesmoke'
+}
+
 const Catalog = ({isMobile}) => {
   const tag = useParams().tag;
   const [products, setProducts] = useState([]);
 
-  const style = {
-    display: 'flex',
-    justifyContent: 'space-evenly',
-    flexWrap: 'wrap',
-    backgroundColor: 'whitesmoke'
-  }
-
   useEffect(() => {
-    fetch("http://localhost:5000/api")
+    fetch("http://localhost:5000/api/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

@@ -3,7 +3,7 @@ const app = express();
 
 const fs = require("fs");
 
-const db = [
+const products = [
     {id: "aspirator", caption: "NEW ASKIR 30", tags: ["endoscopy"]},
     {id: "e1", caption: "E1", tags: ["ultrasound"]},
     {id: "e2", caption: "E2", tags: ["ultrasound"]},
@@ -57,15 +57,36 @@ const db = [
     {id: "vc6-2", caption: "Датчик объемный конвексный VC6-2", tags: ["probes"]},
 ]
 
-for (let i in db) {
-    fs.readFile("./src/server/products/html/" + db[i].id + ".html", function(error, data){
+const news = [
+    {id: 6, caption: "IX СЪЕЗД ОНКОЛОГОВ И РАДИОЛОГОВ КАЗАХСТАНА", description: "26 октября 2023 года"},
+    {id: 5, caption: "VIII Центрально-Азиатская гастроэнтерологическая неделя", description: "5 октября 2023 года"},
+    {id: 4, caption: "Конференция \"1-й Эндоскопический форум Центральной Азии\"", description: "Казахское Эндоскопическое Общество"},
+    {id: 3, caption: "KIHE-2023", description: "28-Я КАЗАХСТАНСКАЯ МЕЖДУНАРОДНАЯ ВЫСТАВКА \"ЗДРАВООХРАНЕНИЕ\""},
+    {id: 2, caption: "Выставка \"ЗДРАВООХРАНЕНИЕ\"", description: "27-Я КАЗАХСТАНСКАЯ МЕЖДУНАРОДНАЯ ВЫСТАВКА ПО ЗДРАВООХРАНЕНИЮ"},
+    {id: 1, caption: "ASTANA ZDOROVIE 2021", description: "17-Я КАЗАХСТАНСКАЯ МЕЖДУНАРОДНАЯ ВЫСТАВКА ПО ЗДРАВООХРАНЕНИЮ"},
+]
+
+for (let i in products) {
+    fs.readFile("./src/server/products/" + products[i].id + ".html", function(error, data){
         if (error) return console.log(error);
-        db[i].html = data.toString();
+        products[i].html = data.toString();
     });
 }
 
-app.get("/api", (req, res) => {
+for (let i in news) {
+    fs.readFile("./src/server/news/" + news[i].id + ".html", function(error, data){
+        if (error) return console.log(error);
+        news[i].html = data.toString();
+    });
+}
+
+app.get("/api/products", (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.json(db);
+    res.json(products);
 });
+app.get("/api/news", (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.json(news);
+});
+
 app.listen(5000, () => {console.log("server listen 5000")});

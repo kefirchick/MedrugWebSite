@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState,  useRef } from 'react';
 import { useMemo } from 'react';
 
-const PanelNews = ({caption, image, children}) => {
+const PanelNews = ({isMobile, caption, id, children}) => {
   const [isHovered, setHovered] = useState(false);
   const [isFolded, setFolded] = useState(true);
+  const ref = useRef(0);
 
   const style = useMemo(
     () => ({
@@ -11,28 +12,29 @@ const PanelNews = ({caption, image, children}) => {
       flexDirection: isFolded ? 'row' : 'column',
       alignItems: isFolded ? 'flex-start' : 'center',
       height: isFolded ? 200 : 'auto',
-      flex: isFolded ? '1 0 400px' : '0 0 100%',
+      flex: isMobile || !isFolded ?  '0 0 100%' : '1 0 40%',
       overflow: 'hidden',
       color: isHovered && isFolded ? 'white' : 'black',
-      backgroundColor: isHovered && isFolded ? 'lightseagreen' : 'transparent',
+      backgroundColor: isHovered && isFolded ? 'lightseagreen' : 'whitesmoke',
       transition: '.3s',
-      cursor: 'pointer',
-      margin: '2%'
+      cursor: isFolded ? 'pointer' : 'auto',
+      margin: 10
     }),
-    [isHovered, isFolded]
+    [isHovered, isFolded, isMobile]
   )
 
-  const imgStyle = useMemo(
-    () => ({
-      width: isFolded ? 200 : '40%',
-      height: isFolded ? 200 : 'auto',
-      objectFit: 'cover',
-      transition: '.3s'
-    }),
-    [isFolded]
-)
+  const imgStyle = useMemo(() => ({
+    width: isFolded ? 200 : isMobile ? '100%' : '40%',
+    height: isFolded ? 200 : 'auto',
+    objectFit: 'cover',
+    transition: '.3s'
+  }), [isFolded, isMobile]);
+
   const handleFold = () => {
     setFolded(isFolded => !isFolded);
+    setTimeout(() => {
+      if (isFolded) ref.current.scrollIntoView({behavior: 'smooth' , block: 'start'});
+    }, 300);
   };
 
   return (
@@ -41,8 +43,13 @@ const PanelNews = ({caption, image, children}) => {
       onMouseLeave={() => setHovered(false)}
       onClick={handleFold}
       style={style}
+      ref={ref}
     >
-      <img style={imgStyle} src={image} alt={caption} />
+      <img
+        style={imgStyle}
+        src={process.env.PUBLIC_URL + '/img/news/' + id + '.jpg'}
+        alt={caption}
+      />
       <div style={{margin: 20, textAlign: 'center'}} >
         <h3>{caption}</h3><br />
         {children}

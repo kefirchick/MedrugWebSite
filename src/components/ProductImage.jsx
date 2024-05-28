@@ -18,7 +18,7 @@ const ProductImage = ({isFolded, id, caption}) => {
   return (
     <img
       style={style}
-      src={process.env.PUBLIC_URL + '/img/' + id + image}
+      src={process.env.PUBLIC_URL + '/img/products/' + id + image}
       alt={caption}
     />
   );
