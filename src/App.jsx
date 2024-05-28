@@ -12,7 +12,7 @@ function App() {
     <>
       <Navbar isMobile={isMobile} />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home isMobile={isMobile} />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/news" element={<News isMobile={isMobile} />}></Route>
         <Route path="/catalog/:tag" element={<Catalog isMobile={isMobile} />}></Route>
