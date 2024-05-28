@@ -43,7 +43,7 @@ const Contacts = () => {
       <div style={mapStyle}>
         {/* <a href="https://yandex.kz/maps/162/almaty/?utm_medium=mapframe&utm_source=maps" style={{color: '#eee', fontSize: 12, position: 'absolute', top: 0}}>Алматы</a> */}
         {/* <a href="https://yandex.kz/maps/162/almaty/house/Y08YfwdlSE0CQFppfX5wdn1rZA==/?ll=76.905584%2C43.217171&utm_campaign=desktop&utm_medium=mapframe&utm_source=maps&z=18.28" style={{color: '#eee', fontSize: 12, position: 'absolute', top: 14}}>Улица Климента Тимирязева, 42к15/109 — Яндекс Карты</a> */}
-        <iframe src="https://yandex.kz/map-widget/v1/?ll=76.905584%2C43.217171&mode=whatshere&utm_campaign=desktop&utm_medium=search&utm_source=maps&whatshere%5Bpoint%5D=76.905468%2C43.217340&whatshere%5Bzoom%5D=17&z=18.28" width="100%" height="400" frameborder="0" allowfullscreen="true" style={{position:'relative'}}></iframe>
+        <iframe title="map" src="https://yandex.kz/map-widget/v1/?ll=76.905584%2C43.217171&mode=whatshere&utm_campaign=desktop&utm_medium=search&utm_source=maps&whatshere%5Bpoint%5D=76.905468%2C43.217340&whatshere%5Bzoom%5D=17&z=18.28" width="100%" height="400" frameborder="0" allowfullscreen="true" style={{position:'relative'}}></iframe>
       </div>
     </div>
   );
