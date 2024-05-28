@@ -73,8 +73,20 @@ for (let i in products) {
     });
 }
 
-app.get("/api", (req, res) => {
+for (let i in news) {
+    fs.readFile("./src/server/news/" + news[i].id + ".html", function(error, data){
+        if (error) return console.log(error);
+        news[i].html = data.toString();
+    });
+}
+
+app.get("/api/products", (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.json(products);
 });
+app.get("/api/news", (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.json(news);
+});
+
 app.listen(5000, () => {console.log("server listen 5000")});

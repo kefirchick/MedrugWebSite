@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useMemo } from 'react';
 
-const PanelNews = ({caption, image, children}) => {
+const PanelNews = ({caption, id, children}) => {
   const [isHovered, setHovered] = useState(false);
   const [isFolded, setFolded] = useState(true);
 
@@ -42,7 +42,11 @@ const PanelNews = ({caption, image, children}) => {
       onClick={handleFold}
       style={style}
     >
-      <img style={imgStyle} src={image} alt={caption} />
+      <img
+        style={imgStyle}
+        src={process.env.PUBLIC_URL + '/img/news/' + id + '.jpg'}
+        alt={caption}
+      />
       <div style={{margin: 20, textAlign: 'center'}} >
         <h3>{caption}</h3><br />
         {children}
