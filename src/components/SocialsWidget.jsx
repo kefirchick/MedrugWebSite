@@ -1,4 +1,5 @@
 import { FaWhatsappSquare, FaFacebookSquare, FaInstagramSquare, FaYoutubeSquare } from "react-icons/fa"
+import { SocialsIcon } from "./SocialsIcon";
 
 const style = {
   position: 'fixed',
@@ -13,18 +14,22 @@ const style = {
 const SocialsWidget = () => {
   return (
     <div style={style}>
-      <a href="https://api.whatsapp.com/send/?phone=77751929911&text&app_absent=0">
-        <FaWhatsappSquare size={60} color={'lightseagreen'} />
-      </a>
-      <a href="https://www.facebook.com/medrug.kz?ref=bookmarks&_rdc=1&_rdr">
-        <FaFacebookSquare size={60} color={'lightseagreen'} />
-      </a>
-      <a href="https://www.instagram.com/medrug.kz/">
-        <FaInstagramSquare size={60} color={'lightseagreen'} />
-      </a>
-      <a href="https://www.youtube.com/channel/UC_WHReOoJmccm5-FId5lwWw/featured">
-        <FaYoutubeSquare size={60} color={'lightseagreen'} />
-      </a>
+      <SocialsIcon 
+        href="https://api.whatsapp.com/send/?phone=77751929911&text&app_absent=0"
+        icon={<FaWhatsappSquare />}
+      />
+      <SocialsIcon 
+        href="https://www.facebook.com/medrug.kz?ref=bookmarks&_rdc=1&_rdr"
+        icon={<FaFacebookSquare />}
+      />
+      <SocialsIcon 
+        href="https://www.instagram.com/medrug.kz/"
+        icon={<FaInstagramSquare />}
+      />
+      <SocialsIcon 
+        href="https://www.youtube.com/channel/UC_WHReOoJmccm5-FId5lwWw/featured"
+        icon={<FaYoutubeSquare />}
+      />
     </div>
   );
 }
