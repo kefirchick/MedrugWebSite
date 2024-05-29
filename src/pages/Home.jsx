@@ -27,7 +27,7 @@ const Home = ({isMobile}) => {
         <SwiperSlide>
           <video
             src={slide1} style={slideStyle}
-            autoplay="autoplay" loop="loop" muted="muted"
+            autoPlay="autoPlay" loop="loop" muted="muted"
           ></video>
         </SwiperSlide>
         <SwiperSlide>
