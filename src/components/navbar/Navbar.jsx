@@ -15,7 +15,7 @@ const Navbar = ({isMobile}) => {
       position: 'sticky',
       top: 0,
       backgroundColor: 'white',
-      zIndex: 1,
+      zIndex: 10,
       display: 'flex',
       justifyContent: 'space-between',
       flexDirection: isMobile ? 'column' : 'row',

@@ -6,7 +6,8 @@ const style = {
   right: 20,
   width: 120,
   display: 'flex',
-  flexWrap: 'wrap'
+  flexWrap: 'wrap',
+  zIndex: 10
 }
 
 const SocialsWidget = () => {
