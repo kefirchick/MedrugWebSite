@@ -1,10 +1,12 @@
-import ultrasoundImg from '../img/home/ultrasound.jpg';
-import probesImg from '../img/home/probes.jpg';
-import endoscopyImg from '../img/home/endoscopy.jpg';
-import instrumentsImg from '../img/home/instruments.jpg';
-import helicobacterImg from '../img/home/helicobacter.jpg';
-import veterinaryImg from '../img/home/veterinary.jpg';
 import { PanelLink } from "./PanelLink";
+import {
+  ultrasoundImg,
+  probesImg,
+  endoscopyImg,
+  instrumentsImg,
+  helicobacterImg,
+  veterinaryImg
+} from '../img/home/links/images';
 
 const style = {
   display:'flex',

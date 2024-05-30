@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/navbar/Navbar.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { SocialsWidget } from './components/SocialsWidget';
-import { About, Catalog, Contacts, Home, News } from "./pages/index.js";
+import { About, Catalog, Contacts, Home, News} from "./pages/index.js";
 
 function App() {
   return (
