@@ -10,7 +10,7 @@ const style = {
   backgroundColor: 'whitesmoke'
 }
 
-const Catalog = ({isMobile}) => {
+const Catalog = () => {
   const tag = useParams().tag;
   const [products, setProducts] = useState([]);
 
@@ -29,7 +29,7 @@ const Catalog = ({isMobile}) => {
       {products
         .filter(product => product?.tags[0] === tag)
         .map(product => (
-          <PanelProduct key={product?.id} id={product?.id} caption={product?.caption} isMobile={isMobile}>
+          <PanelProduct key={product?.id} id={product?.id} caption={product?.caption} >
             <div dangerouslySetInnerHTML={{__html: product?.html}} />
           </PanelProduct>
         ))}

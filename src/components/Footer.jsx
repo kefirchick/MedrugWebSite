@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from "react-router-dom";
+import { useResize } from './ResizeProvider';
 
 const style = {
   display: 'flex',
@@ -21,18 +22,19 @@ const menuStyle = {
   margin: 20
 }
 
-const Footer = ({isMobile}) => {
+const Footer = () => {
+  const isMobile = useResize();
 
-const aboutStyle = useMemo(
-  () => ({
-    display: isMobile ? 'none' : 'block',
-    flex: '3 0 320px',
-    maxWidth: 600,
-    margin: "20px 60px 20px 20px",
-    textAlign: 'justify'
-  }),
-  [isMobile]
-);
+  const aboutStyle = useMemo(
+    () => ({
+      display: isMobile ? 'none' : 'block',
+      flex: '3 0 320px',
+      maxWidth: 600,
+      margin: "20px 60px 20px 20px",
+      textAlign: 'justify'
+    }),
+    [isMobile]
+  );
 
   return (
     <div style={style}>

@@ -15,7 +15,7 @@ const slideStyle = {
   width:'100%'
 }
 
-const Home = ({isMobile}) => {
+const Home = () => {
   return (
     <div>
       <Swiper
@@ -40,7 +40,7 @@ const Home = ({isMobile}) => {
       
       <LinkBlock />
       <h2 style={{textAlign: 'center'}}><br/>Новости и События</h2>
-      <NewsLine isMobile={isMobile} numberOfNews={4} />
+      <NewsLine numberOfNews={4} />
     </div>
   );
 }

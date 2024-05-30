@@ -1,9 +1,10 @@
 import { useState, useMemo } from 'react';
 import { IoMenu } from "react-icons/io5";
+import { useResize } from '../ResizeProvider';
 
-const Toggler = ({isMobile, handleToggler}) => {
+const Toggler = ({handleToggler}) => {
   const [isHovered, setHovered] = useState(false);
-
+  const isMobile = useResize();
 
   const style = useMemo(() => ({
       display: isMobile ? 'flex' : 'none',

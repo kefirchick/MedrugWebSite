@@ -1,10 +1,12 @@
 import { useState,  useRef } from 'react';
 import { useMemo } from 'react';
+import { useResize } from './ResizeProvider';
 
-const PanelNews = ({isMobile, caption, id, children}) => {
+const PanelNews = ({caption, id, children}) => {
   const [isHovered, setHovered] = useState(false);
   const [isFolded, setFolded] = useState(true);
   const ref = useRef(0);
+  const isMobile = useResize();
 
   const style = useMemo(
     () => ({

@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useMemo } from 'react';
+import { useState, useMemo } from 'react';
 
 const PanelContacts = ({caption, Img, children}) => {
   const [isHovered, setHovered] = useState(false);
@@ -9,7 +8,6 @@ const PanelContacts = ({caption, Img, children}) => {
       backgroundColor: isHovered ? 'transparent' : 'lightgrey',
       display: 'flex',
       flexDirection: 'column',
-      // justifyContent: 'center',
       alignItems: 'center',
       transition: '1s',
       width: 280,

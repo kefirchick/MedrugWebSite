@@ -7,7 +7,7 @@ const style = {
   flexWrap: 'wrap',
 }
 
-const NewsLine = ({isMobile, numberOfNews}) => {
+const NewsLine = ({numberOfNews}) => {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const NewsLine = ({isMobile, numberOfNews}) => {
         {news
           .slice(0, numberOfNews)
           .map(record => (
-            <PanelNews key={record?.id} isMobile={isMobile} id={record?.id} caption={record?.caption}>
+            <PanelNews key={record?.id} id={record?.id} caption={record?.caption}>
               <div dangerouslySetInnerHTML={{__html: record?.html}} />
             </PanelNews>
         ))}

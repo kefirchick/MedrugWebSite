@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { NavLink } from "react-router-dom";
 import { CatalogHead } from "./CatalogHead";
+import { useResize } from '../ResizeProvider';
 
 const style = {
   display: 'flex',
@@ -10,7 +11,9 @@ const style = {
   width: 800
 }
 
-const NavbarMenu = ({isMobile, isMenuHidden}) => {
+const NavbarMenu = ({isMenuHidden}) => {
+  const isMobile = useResize();
+
   const createStyle = useMemo(
     () => {
     const styleMobile = {
@@ -28,7 +31,7 @@ const NavbarMenu = ({isMobile, isMenuHidden}) => {
     <div style={createStyle}>
       <NavLink to="/about">О КОМПАНИИ</NavLink>
       <NavLink to="/news">НОВОСТИ</NavLink>
-      <CatalogHead isMobile={isMobile} isMenuHidden={isMenuHidden} />
+      <CatalogHead isMenuHidden={isMenuHidden} />
       <NavLink to="/contacts">КОНТАКТЫ</NavLink>
     </div>
   );

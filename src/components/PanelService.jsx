@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useMemo } from 'react';
+import { useState, useMemo } from 'react';
 
 const PanelService = ({caption, Img, children}) => {
   const [isHovered, setHovered] = useState(false);

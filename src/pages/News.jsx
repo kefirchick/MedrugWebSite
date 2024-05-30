@@ -1,11 +1,11 @@
 import { NewsLine } from '../components/NewsLine';
 import banner from '../img/banners/news.jpg';
 
-const News = ({isMobile}) => {
+const News = () => {
   return (
     <div style={{overflow: 'hidden'}}>
       <img src={banner} style={{width: '100%'}} alt='banner' />
-      <NewsLine isMobile={isMobile} numberOfNews={6} />
+      <NewsLine numberOfNews={6} />
     </div>
   );
 }

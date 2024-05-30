@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { NavbarHead } from './NavbarHead';
 import { NavbarMenu } from './NavbarMenu';
+import { useResize } from '../ResizeProvider';
 
-const Navbar = ({isMobile}) => {
+const Navbar = () => {
   const [isMenuHidden, setMenuHidden] = useState(true);
+  const isMobile = useResize();
 
   const handleToggler = () => {
     setMenuHidden(isMenuHidden => !isMenuHidden);
@@ -27,8 +28,8 @@ const Navbar = ({isMobile}) => {
 
   return (
     <nav style={style}>
-      <NavbarHead isMobile={isMobile} handleToggler={handleToggler} />
-      <NavbarMenu isMobile={isMobile} isMenuHidden={isMenuHidden} />
+      <NavbarHead handleToggler={handleToggler} />
+      <NavbarMenu isMenuHidden={isMenuHidden} />
     </nav>
   );
 }

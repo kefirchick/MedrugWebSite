@@ -1,8 +1,11 @@
 import { useMemo } from 'react';
 import { Toggler } from './Toggler';
 import { Logo } from './Logo';
+import { useResize } from '../ResizeProvider';
 
-const NavbarHead = ({isMobile, handleToggler}) => {
+const NavbarHead = ({handleToggler}) => {
+  const isMobile = useResize();
+
   const style = useMemo(
     () => ({
       display: 'flex',
@@ -15,7 +18,7 @@ const NavbarHead = ({isMobile, handleToggler}) => {
 
   return (
     <div style={style}>
-      <Toggler isMobile={isMobile} handleToggler={handleToggler} />
+      <Toggler handleToggler={handleToggler} />
       <Logo />
     </div>
   );

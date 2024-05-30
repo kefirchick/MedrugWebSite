@@ -1,7 +1,10 @@
 import { useMemo } from 'react';
 import { NavLink } from "react-router-dom";
+import { useResize } from '../ResizeProvider';
 
-const CatalogMenu = ({isMobile, isCatalogHidden, setCatalogHidden}) => {
+const CatalogMenu = ({isCatalogHidden, setCatalogHidden}) => {
+  const isMobile = useResize();
+
   const style = useMemo(
     () => ({
       display: 'flex',

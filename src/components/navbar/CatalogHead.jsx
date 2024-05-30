@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CatalogMenu } from "./CatalogMenu";
+import { useResize } from '../ResizeProvider';
 
 const style = {
   display: 'flex',
@@ -14,8 +15,9 @@ const buttonStyle = {
   cursor: 'pointer'
 }
 
-const CatalogHead = ({isMobile}) => {
+const CatalogHead = () => {
   let [isCatalogHidden, setCatalogHidden] = useState(true);
+  const isMobile = useResize();
   
   const handleToggle = () => {
     if (isMobile) setCatalogHidden(isCatalogHidden => !isCatalogHidden);
@@ -28,7 +30,7 @@ const CatalogHead = ({isMobile}) => {
         onMouseLeave={ () => {if (!isMobile) setCatalogHidden(true)} }
       >
         <div style={buttonStyle} onClick={handleToggle} >КАТАЛОГ</div>
-        <CatalogMenu isMobile={isMobile} isCatalogHidden={isCatalogHidden} setCatalogHidden={setCatalogHidden} />
+        <CatalogMenu isCatalogHidden={isCatalogHidden} setCatalogHidden={setCatalogHidden} />
       </div>
   );
 }
