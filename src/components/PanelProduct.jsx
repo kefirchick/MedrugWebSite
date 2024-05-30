@@ -3,9 +3,8 @@ import { Description } from './Description';
 import { ProductImage } from './ProductImage';
 import { useResize } from './ResizeProvider';
 
-const PanelProduct = ({id, caption, children, subtitle}) => {
+const PanelProduct = ({id, caption, children, subtitle, isFolded, handleFold}) => {
   const [isHovered, setHovered] = useState(false);
-  const [isFolded, setFolded] = useState(true);
   const ref = useRef(0);
   const isMobile = useResize();
 
@@ -26,18 +25,20 @@ const PanelProduct = ({id, caption, children, subtitle}) => {
       padding: 10
   }), [isHovered, isFolded, isMobile])
   
-  const handleFold = () => {
-    setFolded(isFolded => !isFolded);
-    setTimeout(() => {
-      if (isFolded) ref.current.scrollIntoView({behavior: 'smooth' , block: 'start'});
-    }, 300);
+  const onFold = () => {
+    handleFold(id);
+    if (isFolded) {
+      setTimeout(() => {
+        ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
   };
 
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={handleFold}
+      onClick={onFold}
       style={style}
       ref={ref}
     >
