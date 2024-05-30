@@ -16,7 +16,7 @@ const PanelNews = ({caption, id, children}) => {
       height: isFolded ? 200 : 'auto',
       flex: isMobile || !isFolded ?  '0 0 100%' : '1 0 40%',
       overflow: 'hidden',
-      color: isHovered && isFolded ? 'white' : 'black',
+      color: !isFolded ? 'black' : isHovered ? 'white' : 'dimgrey',
       backgroundColor: isHovered && isFolded ? 'lightseagreen' : 'whitesmoke',
       transition: '.3s',
       cursor: isFolded ? 'pointer' : 'auto',

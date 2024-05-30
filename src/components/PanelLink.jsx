@@ -10,8 +10,7 @@ const imgStyle = {
 const PanelLink = ({name, img, link}) => {
   const [isHovered, setHovered] = useState(false);
 
-  const style = useMemo(
-    () => ({
+  const style = useMemo(() => ({
       display:'flex',
       flexDirection:'column',
       alignContent:"center",
@@ -21,9 +20,7 @@ const PanelLink = ({name, img, link}) => {
       transition: '.3s',
       backgroundColor: 'white',
       margin: 10
-    }),
-    [isHovered]
-  );
+    }), [isHovered]);
 
   return (
     <Link
