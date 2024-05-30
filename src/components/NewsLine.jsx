@@ -9,6 +9,11 @@ const style = {
 
 const NewsLine = ({numberOfNews}) => {
   const [news, setNews] = useState([]);
+  const [unfoldedId, setUnfoldedId] = useState(null);
+
+  const handleFold = (id) => {
+    setUnfoldedId(prevId => (prevId === id ? null : id));
+  };
 
   useEffect(() => {
     fetch("http://localhost:3000/api/news")
@@ -24,7 +29,13 @@ const NewsLine = ({numberOfNews}) => {
         {news
           .slice(0, numberOfNews)
           .map(record => (
-            <PanelNews key={record?.id} id={record?.id} caption={record?.caption}>
+            <PanelNews
+              key={record?.id}
+              id={record?.id}
+              caption={record?.caption}
+              isFolded={unfoldedId !== record?.id}
+              handleFold={handleFold}
+            >
               <div dangerouslySetInnerHTML={{__html: record?.html}} />
             </PanelNews>
         ))}

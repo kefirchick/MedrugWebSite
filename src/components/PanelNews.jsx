@@ -2,9 +2,8 @@ import { useState,  useRef } from 'react';
 import { useMemo } from 'react';
 import { useResize } from './ResizeProvider';
 
-const PanelNews = ({caption, id, children}) => {
+const PanelNews = ({caption, id, children, isFolded, handleFold}) => {
   const [isHovered, setHovered] = useState(false);
-  const [isFolded, setFolded] = useState(true);
   const ref = useRef(0);
   const isMobile = useResize();
 
@@ -32,18 +31,20 @@ const PanelNews = ({caption, id, children}) => {
     transition: '.3s'
   }), [isFolded, isMobile]);
 
-  const handleFold = () => {
-    setFolded(isFolded => !isFolded);
-    setTimeout(() => {
-      if (isFolded) ref.current.scrollIntoView({behavior: 'smooth' , block: 'start'});
-    }, 300);
+  const onFold = () => {
+    handleFold(id);
+    if (isFolded) {
+      setTimeout(() => {
+        ref.current.scrollIntoView({behavior: 'smooth' , block: 'start'});
+      }, 300);
+    }
   };
 
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={handleFold}
+      onClick={onFold}
       style={style}
       ref={ref}
     >

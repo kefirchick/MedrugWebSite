@@ -39,7 +39,7 @@ const Catalog = () => {
             id={product?.id}
             caption={product?.caption}
             subtitle={product?.subtitle}
-            isFolded={!(unfoldedId === product?.id)}
+            isFolded={unfoldedId !== product?.id}
             handleFold={handleFold}
           >
             <div dangerouslySetInnerHTML={{__html: product?.html}} />
