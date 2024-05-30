@@ -38,3 +38,12 @@ nav a.active {
   color:lightseagreen;
   transition: .3s;
 }
+
+@keyframes moveGradient {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}

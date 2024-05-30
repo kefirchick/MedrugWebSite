@@ -1,4 +1,5 @@
-import banner from '../img/banners/contacts.jpg';
+import { Banner } from '../components/Banner';
+import bannerImg from '../img/banners/contacts.jpg';
 import { PanelContacts } from "../components/PanelContacts";
 import { IoMdCall } from "react-icons/io";
 import { FaMapLocationDot } from "react-icons/fa6";
@@ -21,7 +22,7 @@ const mapStyle = {
 const Contacts = () => {
   return (
     <div>
-      <img src={banner} style={{width: '100%'}} alt='banner' />
+      <Banner image={bannerImg}>Контактная информация</Banner>
 
       <div style={style} >
         <PanelContacts caption={'Позвоните нам'} Img={IoMdCall}>

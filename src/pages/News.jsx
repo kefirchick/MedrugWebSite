@@ -1,10 +1,11 @@
 import { NewsLine } from '../components/NewsLine';
-import banner from '../img/banners/news.jpg';
+import { Banner } from '../components/Banner';
+import bannerImg from '../img/banners/news.jpg';
 
 const News = () => {
   return (
-    <div style={{overflow: 'hidden'}}>
-      <img src={banner} style={{width: '100%'}} alt='banner' />
+    <div>
+      <Banner image={bannerImg}>Новости и события</Banner>
       <NewsLine numberOfNews={6} />
     </div>
   );
