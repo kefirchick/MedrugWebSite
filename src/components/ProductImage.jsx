@@ -4,7 +4,8 @@ const ProductImage = ({isFolded, id, caption}) => {
   const style = useMemo(
     () => ({
       width: isFolded ? 200 : '40%',
-      objectFit: 'cover',
+      height: isFolded ? 200 : 'auto',
+      objectFit: 'contain',
       transition: '.3s',
       margin: 20
     }),

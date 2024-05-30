@@ -29,7 +29,7 @@ const Catalog = () => {
       {products
         .filter(product => product?.tags[0] === tag)
         .map(product => (
-          <PanelProduct key={product?.id} id={product?.id} caption={product?.caption} >
+          <PanelProduct key={product?.id} id={product?.id} caption={product?.caption} subtitle={product?.subtitle} >
             <div dangerouslySetInnerHTML={{__html: product?.html}} />
           </PanelProduct>
         ))}

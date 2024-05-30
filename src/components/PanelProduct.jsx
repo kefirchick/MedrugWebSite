@@ -3,21 +3,20 @@ import { Description } from './Description';
 import { ProductImage } from './ProductImage';
 import { useResize } from './ResizeProvider';
 
-const PanelProduct = ({id, caption, children}) => {
+const PanelProduct = ({id, caption, children, subtitle}) => {
   const [isHovered, setHovered] = useState(false);
   const [isFolded, setFolded] = useState(true);
   const ref = useRef(0);
   const isMobile = useResize();
 
-  const style = useMemo(
-    () => ({
+  const style = useMemo(() => ({
       backgroundColor: 'white',
       display: 'flex',
       flexDirection: (isFolded || isMobile) ? 'column' : 'row',
       justifyContent: 'space-evenly',
       alignItems: (isFolded || isMobile) ? 'center' : 'flex-start',
       textAlign: 'center',
-      height: isFolded ? 370 : 'auto',
+      height: isFolded ? 340 : 'auto',
       width: isFolded ? 270 : '100%',
       translate: isHovered && isFolded ? '0 -5px 0' : '0 0 0',
       boxShadow: isHovered && isFolded ? '0 10px 10px rgba(0, 0, 0, 0.2)' : '0 0 0 rgba(0, 0, 0, 0)',
@@ -25,9 +24,7 @@ const PanelProduct = ({id, caption, children}) => {
       cursor: isFolded ? 'pointer' : 'auto',
       margin: "20px 10px",
       padding: 10
-    }),
-    [isHovered, isFolded, isMobile]
-  )
+  }), [isHovered, isFolded, isMobile])
   
   const handleFold = () => {
     setFolded(isFolded => !isFolded);
@@ -45,7 +42,10 @@ const PanelProduct = ({id, caption, children}) => {
       ref={ref}
     >
       <ProductImage isFolded={isFolded} id={id} caption={caption} />
-      <h3 style={{display: isFolded? 'block' : 'none'}}>{caption}</h3><br />
+      <div style={{display: isFolded? 'block' : 'none'}}>
+        <p>{subtitle}</p>
+        <h3>{caption}</h3>
+      </div>
       <Description isFolded={isFolded} caption={caption} description={children} />
     </div>
   );
