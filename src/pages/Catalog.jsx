@@ -28,24 +28,34 @@ const Catalog = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const filteredProducts = products.filter(product => product?.group === tag);
+  const uniqueSubgroups = [...new Set(filteredProducts.map(product => product.subgroup))];
+
   return (
-    <div style ={style}>
-      <img src={banner} style={{width: '100%'}} alt='banner' />
-      {products
-        .filter(product => product?.tags[0] === tag)
-        .map(product => (
-          <PanelProduct
-            key={product?.id}
-            id={product?.id}
-            caption={product?.caption}
-            subtitle={product?.subtitle}
-            isFolded={unfoldedId !== product?.id}
-            handleFold={handleFold}
-          >
-            <div dangerouslySetInnerHTML={{__html: product?.html}} />
-          </PanelProduct>
-        ))}
-    </div>
+    <>
+      <img src={banner} style={{ width: '100%' }} alt='banner' />
+      {uniqueSubgroups.map(subgroup => (
+        <div key={subgroup}>
+          <h2 style={{textAlign: 'center', margin: 20}}>{subgroup}</h2>
+          <div style={style}>
+            {filteredProducts
+              .filter(product => product?.subgroup === subgroup)
+              .map(product => (
+                <PanelProduct
+                  key={product?.id}
+                  id={product?.id}
+                  caption={product?.caption}
+                  subtitle={product?.subtitle}
+                  isFolded={unfoldedId !== product?.id}
+                  handleFold={handleFold}
+                >
+                  <div dangerouslySetInnerHTML={{ __html: product?.html }} />
+                </PanelProduct>
+              ))}
+          </div>
+        </div>
+      ))}
+    </>
   );
 }
 
