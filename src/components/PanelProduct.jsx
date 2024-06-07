@@ -47,7 +47,12 @@ const PanelProduct = ({id, caption, children, subtitle, isFolded, handleFold}) =
         <p>{subtitle}</p>
         <h3>{caption}</h3>
       </div>
-      <Description isFolded={isFolded} caption={caption} description={children} />
+      <Description
+        isFolded={isFolded}
+        caption={caption}
+        description={children}
+        handleFold={handleFold}
+      />
     </div>
   );
 }

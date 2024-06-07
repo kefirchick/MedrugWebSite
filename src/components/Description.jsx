@@ -1,8 +1,15 @@
 import { useMemo} from 'react';
 import { BuyButton } from './BuyButton';
 import { ServiceWidget } from './ServiceWidget';
+import { CloseButton } from './CloseButton';
 
-const Description = ({isFolded, caption, description}) => {
+const headerStyle = {
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'space-between'
+}
+
+const Description = ({isFolded, caption, description, handleFold}) => {
   const style = useMemo(
     () => ({
       display: isFolded ? 'none' : 'flex',
@@ -16,7 +23,12 @@ const Description = ({isFolded, caption, description}) => {
 
   return (
     <div style={style}>
-      <h2>{caption}</h2><br />
+      <div style={headerStyle}>
+        <div />
+        <h2>{caption}</h2>
+        <CloseButton handleFold={handleFold} />
+      </div>
+      <br />
       {description}
       <BuyButton product={caption} />
       <ServiceWidget />

@@ -10,13 +10,19 @@ const style = {
   backgroundColor: 'whitesmoke'
 }
 
+const headerStyle = {
+  textAlign: 'center',
+  margin: 20,
+  fontSize: 28
+}
+
 const Catalog = () => {
   const tag = useParams().tag;
   const [products, setProducts] = useState([]);
   const [unfoldedId, setUnfoldedId] = useState(null);
 
   const handleFold = (id) => {
-    setUnfoldedId(id);
+    if (unfoldedId !== id) setUnfoldedId(id);
   };
 
   useEffect(() => {
@@ -36,7 +42,7 @@ const Catalog = () => {
       <img src={banner} style={{ width: '100%' }} alt='banner' />
       {uniqueSubgroups.map(subgroup => (
         <div key={subgroup}>
-          <h2 style={{textAlign: 'center', margin: 20}}>{subgroup}</h2>
+          <h2 style={headerStyle}>{subgroup}</h2>
           <div style={style}>
             {filteredProducts
               .filter(product => product?.subgroup === subgroup)
