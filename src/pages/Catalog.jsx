@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import { PanelProduct } from '../components/PanelProduct';
-import banner from '../img/banners/ultrasound.jpg';
+import { CatalogBanner } from '../components/CatalogBanner';
 
 const style = {
   display: 'flex',
@@ -39,7 +39,7 @@ const Catalog = () => {
 
   return (
     <>
-      <img src={banner} style={{ width: '100%' }} alt='banner' />
+      <CatalogBanner />
       {uniqueSubgroups.map(subgroup => (
         <div key={subgroup}>
           <h2 style={headerStyle}>{subgroup}</h2>
