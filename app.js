@@ -1,7 +1,27 @@
-const express = require("express");
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const fs = require('fs');
+
 const app = express();
 
-const fs = require("fs");
+const corsOptions = {
+    origin: 'http://your-frontend-url.com',
+    optionsSuccessStatus: 200,
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    exposedHeaders: ['Access-Control-Allow-Private-Network']
+};
+
+app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Private-Network', 'true');
+    next();
+});
+
+app.use(express.static(path.join(__dirname, 'build')));
 
 const products = [
     {id: "hd-320", caption: "HD-320", subtitle: "Видеоэндоскопическая система", group: "endoscopy", subgroup: "Видеоэндоскопические системы"},
@@ -71,26 +91,40 @@ const news = [
 ]
 
 for (let i in products) {
-    fs.readFile("./src/server/products/" + products[i].id + ".html", function(error, data){
-        if (error) return console.log(error);
+    fs.readFile(path.join(__dirname, 'src/server/products', products[i].id + '.html'), function(error, data) {
+        if (error) {
+            console.error(`Error reading product file ${products[i].id}.html:`, error);
+            return;
+        }
         products[i].html = data.toString();
     });
 }
 
 for (let i in news) {
-    fs.readFile("./src/server/news/" + news[i].id + ".html", function(error, data){
-        if (error) return console.log(error);
+    fs.readFile(path.join(__dirname, 'src/server/news', news[i].id + '.html'), function(error, data) {
+        if (error) {
+            console.error(`Error reading news file ${news[i].id}.html:`, error);
+            return;
+        }
         news[i].html = data.toString();
     });
 }
 
-app.get("/api/products", (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+app.get('/api/products', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.json(products);
 });
-app.get("/api/news", (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+
+app.get('/api/news', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.json(news);
 });
 
-app.listen(5000, () => {console.log("server listen 5000")});
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
