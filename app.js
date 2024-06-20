@@ -112,17 +112,23 @@ for (let i in news) {
 }
 
 app.get('/api/products', (req, res) => {
+    console.log('GET /api/products');
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.json(products);
+    console.log('Sent products data');
 });
 
 app.get('/api/news', (req, res) => {
+    console.log('GET /api/news');
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.json(news);
+    console.log('Sent news data');
 });
 
 app.get('*', (req, res) => {
+    console.log(`GET ${req.url}`);
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    console.log('Sent index.html');
 });
 
 const PORT = process.env.PORT || 5000;
