@@ -2,11 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+require('dotenv').config();
 
 const app = express();
 
 const corsOptions = {
-    origin: 'http://your-frontend-url.com',
+    origin: 'https://medrug.kz',
     optionsSuccessStatus: 200,
     allowedHeaders: ['Content-Type', 'Authorization'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -125,7 +126,8 @@ app.get('*', (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-const HOST = '0.0.0.0'; // Listen on all network interfaces
+const HOST = '0.0.0.0'; // Ensure the server listens on all network interfaces
+
 app.listen(PORT, HOST, () => {
-    console.log(`Server is running on http://${HOST}:${PORT}`);
+    console.log(`Server is running on https://${HOST}:${PORT}`);
 });

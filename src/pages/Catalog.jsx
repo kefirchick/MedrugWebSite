@@ -26,9 +26,7 @@ const Catalog = () => {
   };
 
   useEffect(() => {
-    const apiUrl = process.env.REACT_APP_API_URL;
-
-    fetch(`${apiUrl}/products`)
+    fetch(`${process.env.REACT_APP_API_URL}/products`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

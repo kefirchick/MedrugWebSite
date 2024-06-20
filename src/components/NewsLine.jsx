@@ -16,7 +16,7 @@ const NewsLine = ({numberOfNews}) => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/news")
+    fetch(`${process.env.REACT_APP_API_URL}/news`)
       .then((res) => res.json())
       .then((data) => {
         setNews(data);
