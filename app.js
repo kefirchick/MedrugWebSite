@@ -82,15 +82,6 @@ const products = [
     {id: "vc6-2", caption: "VC6-2", subtitle: "Датчик объемный конвексный", group: "probes", subgroup: ""},
 ]
 
-const news = [
-    {id: 6, caption: "IX СЪЕЗД ОНКОЛОГОВ И РАДИОЛОГОВ КАЗАХСТАНА", description: "26 октября 2023 года"},
-    {id: 5, caption: "VIII Центрально-Азиатская гастроэнтерологическая неделя", description: "5 октября 2023 года"},
-    {id: 4, caption: "Конференция \"1-й Эндоскопический форум Центральной Азии\"", description: "Казахское Эндоскопическое Общество"},
-    {id: 3, caption: "KIHE-2023", description: "28-Я КАЗАХСТАНСКАЯ МЕЖДУНАРОДНАЯ ВЫСТАВКА \"ЗДРАВООХРАНЕНИЕ\""},
-    {id: 2, caption: "Выставка \"ЗДРАВООХРАНЕНИЕ\"", description: "27-Я КАЗАХСТАНСКАЯ МЕЖДУНАРОДНАЯ ВЫСТАВКА ПО ЗДРАВООХРАНЕНИЮ"},
-    {id: 1, caption: "ASTANA ZDOROVIE 2021", description: "17-Я КАЗАХСТАНСКАЯ МЕЖДУНАРОДНАЯ ВЫСТАВКА ПО ЗДРАВООХРАНЕНИЮ"},
-]
-
 for (let i in products) {
     fs.readFile(path.join(__dirname, 'src/server/products', products[i].id + '.html'), function(error, data) {
         if (error) {
@@ -101,28 +92,11 @@ for (let i in products) {
     });
 }
 
-for (let i in news) {
-    fs.readFile(path.join(__dirname, 'src/server/news', news[i].id + '.html'), function(error, data) {
-        if (error) {
-            console.error(`Error reading news file ${news[i].id}.html:`, error);
-            return;
-        }
-        news[i].html = data.toString();
-    });
-}
-
 app.get('/api/products', (req, res) => {
     console.log('GET /api/products');
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.json(products);
     console.log('Sent products data');
-});
-
-app.get('/api/news', (req, res) => {
-    console.log('GET /api/news');
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.json(news);
-    console.log('Sent news data');
 });
 
 app.get('*', (req, res) => {

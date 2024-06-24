@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { PanelNews } from './PanelNews';
+import news from '../server/news/news';
 
 const style = {
   margin: 20,
@@ -8,21 +9,12 @@ const style = {
 }
 
 const NewsLine = ({numberOfNews}) => {
-  const [news, setNews] = useState([]);
   const [unfoldedId, setUnfoldedId] = useState(null);
 
   const handleFold = (id) => {
     setUnfoldedId(prevId => (prevId === id ? null : id));
   };
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/news`)
-      .then((res) => res.json())
-      .then((data) => {
-        setNews(data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   return (
       <div style={style}>
@@ -36,7 +28,7 @@ const NewsLine = ({numberOfNews}) => {
               isFolded={unfoldedId !== record?.id}
               handleFold={handleFold}
             >
-              <div dangerouslySetInnerHTML={{__html: record?.html}} />
+              <record.content />
             </PanelNews>
         ))}
       </div>
