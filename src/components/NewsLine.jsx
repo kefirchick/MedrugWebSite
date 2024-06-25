@@ -3,7 +3,7 @@ import { PanelNews } from './PanelNews';
 import news from '../server/news/news';
 
 const style = {
-  margin: 20,
+  width: '100%',
   display: 'flex',
   flexWrap: 'wrap',
 }
@@ -25,6 +25,7 @@ const NewsLine = ({numberOfNews}) => {
               key={record?.id}
               id={record?.id}
               caption={record?.caption}
+              description={record?.description}
               isFolded={unfoldedId !== record?.id}
               handleFold={handleFold}
             >

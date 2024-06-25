@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <Slider />      
       <LinkBlock />
-      <h2 style={{textAlign: 'center'}}><br/>Новости и События</h2>
+      <h2 style={{textAlign: 'center'}}><br/>Новости и События</h2><br/>
       <NewsLine numberOfNews={4} />
     </div>
   );

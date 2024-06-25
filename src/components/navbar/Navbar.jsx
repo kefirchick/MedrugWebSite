@@ -11,6 +11,10 @@ const Navbar = () => {
     setMenuHidden(isMenuHidden => !isMenuHidden);
   };
 
+  const menuClose = () => {
+    setMenuHidden(true);
+  };
+
   const style = useMemo(
     () => ({
       position: 'sticky',
@@ -29,7 +33,7 @@ const Navbar = () => {
   return (
     <nav style={style}>
       <NavbarHead handleToggler={handleToggler} />
-      <NavbarMenu isMenuHidden={isMenuHidden} />
+      <NavbarMenu isMenuHidden={isMenuHidden} menuClose={menuClose} />
     </nav>
   );
 }

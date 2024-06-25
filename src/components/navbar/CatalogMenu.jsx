@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { NavLink } from "react-router-dom";
 import { useResize } from '../ResizeProvider';
 
-const CatalogMenu = ({isCatalogHidden, setCatalogHidden}) => {
+const CatalogMenu = ({isCatalogHidden, setCatalogHidden, menuClose}) => {
   const isMobile = useResize();
 
   const style = useMemo(
@@ -28,12 +28,12 @@ const CatalogMenu = ({isCatalogHidden, setCatalogHidden}) => {
       onMouseEnter={ () => {if (!isMobile) setCatalogHidden(false)} }
       onMouseLeave={ () => {if (!isMobile) setCatalogHidden(true)} }
     >
-      <NavLink to="/catalog/ultrasound">УЗИ</NavLink>
-      <NavLink to="/catalog/probes">УЗ ДАТЧИКИ</NavLink>
-      <NavLink to="/catalog/endoscopy">ЭНДОСКОПИЯ</NavLink>
-      <NavLink to="/catalog/instruments">ИНСТРУМЕНТЫ</NavLink>
-      <NavLink to="/catalog/helicobacter">ХЕЛИКОБАКТЕР</NavLink>
-      <NavLink to="/catalog/veterinary">ВЕТЕРИНАРИЯ</NavLink>
+      <NavLink onClick={menuClose} to="/catalog/ultrasound">УЗИ</NavLink>
+      <NavLink onClick={menuClose} to="/catalog/probes">УЗ ДАТЧИКИ</NavLink>
+      <NavLink onClick={menuClose} to="/catalog/endoscopy">ЭНДОСКОПИЯ</NavLink>
+      <NavLink onClick={menuClose} to="/catalog/instruments">ИНСТРУМЕНТЫ</NavLink>
+      <NavLink onClick={menuClose} to="/catalog/helicobacter">ХЕЛИКОБАКТЕР</NavLink>
+      <NavLink onClick={menuClose} to="/catalog/veterinary">ВЕТЕРИНАРИЯ</NavLink>
     </div>
   );
 }

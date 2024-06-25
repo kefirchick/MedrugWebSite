@@ -11,7 +11,7 @@ const style = {
   width: 800
 }
 
-const NavbarMenu = ({isMenuHidden}) => {
+const NavbarMenu = ({isMenuHidden, menuClose}) => {
   const isMobile = useResize();
 
   const createStyle = useMemo(
@@ -29,10 +29,10 @@ const NavbarMenu = ({isMenuHidden}) => {
 
   return (
     <div style={createStyle}>
-      <NavLink to="/about">О КОМПАНИИ</NavLink>
-      <NavLink to="/news">НОВОСТИ</NavLink>
-      <CatalogHead isMenuHidden={isMenuHidden} />
-      <NavLink to="/contacts">КОНТАКТЫ</NavLink>
+      <NavLink onClick={menuClose} to="/about">О КОМПАНИИ</NavLink>
+      <NavLink onClick={menuClose} to="/news">НОВОСТИ</NavLink>
+      <CatalogHead menuClose={menuClose} />
+      <NavLink onClick={menuClose} to="/contacts">КОНТАКТЫ</NavLink>
     </div>
   );
 }

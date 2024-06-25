@@ -15,7 +15,7 @@ const buttonStyle = {
   cursor: 'pointer'
 }
 
-const CatalogHead = () => {
+const CatalogHead = ({menuClose}) => {
   let [isCatalogHidden, setCatalogHidden] = useState(true);
   const isMobile = useResize();
   
@@ -30,7 +30,11 @@ const CatalogHead = () => {
         onMouseLeave={ () => {if (!isMobile) setCatalogHidden(true)} }
       >
         <div style={buttonStyle} onClick={handleToggle} >КАТАЛОГ</div>
-        <CatalogMenu isCatalogHidden={isCatalogHidden} setCatalogHidden={setCatalogHidden} />
+        <CatalogMenu
+          isCatalogHidden={isCatalogHidden}
+          setCatalogHidden={setCatalogHidden}
+          menuClose={menuClose}
+        />
       </div>
   );
 }

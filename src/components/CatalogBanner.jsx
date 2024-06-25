@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
+import { useResize } from "./ResizeProvider";
 import banner1 from '../img/banners/ultrasound.jpg';
 import banner2 from '../img/banners/endoscopy.jpg';
 
@@ -9,16 +10,6 @@ const style = {
   alignItems: 'center'
 }
 
-const captionStyle = {
-  position: 'absolute',
-  color: 'transparent',
-  backgroundImage: 'linear-gradient(90deg, whitesmoke 0%, white 45%, transparent 50%, whitesmoke 55%, whitesmoke 100%)',
-  backgroundSize: '200% 100%',
-  backgroundClip: 'text',
-  animation: 'moveGradient 1.5s linear infinite',
-  zIndex: 2
-}
-
 const img2Style = {
   width: '100%',
   position: 'absolute',
@@ -26,6 +17,7 @@ const img2Style = {
 }
 
 const CatalogBanner = () => {
+  const isMobile = useResize();
   const [isFirstBanner, setIsFirstBanner] = useState(true);
 
   useEffect(() => {
@@ -35,6 +27,18 @@ const CatalogBanner = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const captionStyle = useMemo(() => ({
+    position: 'absolute',
+    color: 'transparent',
+    backgroundImage: 'linear-gradient(90deg, whitesmoke 0%, white 45%, transparent 50%, whitesmoke 55%, whitesmoke 100%)',
+    backgroundSize: '200% 100%',
+    backgroundClip: 'text',
+    animation: 'moveGradient 1.5s linear infinite',
+    zIndex: 2,
+    textAlign: 'center',
+    fontSize: isMobile ? 32 : 64,
+  }), [isMobile] )
 
   const img1Style = useMemo(() => ({
       width: '100%',

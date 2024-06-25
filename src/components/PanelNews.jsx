@@ -2,7 +2,7 @@ import { useState,  useRef } from 'react';
 import { useMemo } from 'react';
 import { useResize } from './ResizeProvider';
 
-const PanelNews = ({caption, id, children, isFolded, handleFold}) => {
+const PanelNews = ({caption, id, description, children, isFolded, handleFold}) => {
   const [isHovered, setHovered] = useState(false);
   const ref = useRef(0);
   const isMobile = useResize();
@@ -12,21 +12,22 @@ const PanelNews = ({caption, id, children, isFolded, handleFold}) => {
       display: 'flex',
       flexDirection: isFolded ? 'row' : 'column',
       alignItems: isFolded ? 'flex-start' : 'center',
-      height: isFolded ? 200 : 'auto',
+      height: isFolded ? 160 : 'auto',
       flex: isMobile || !isFolded ?  '0 0 100%' : '1 0 40%',
       overflow: 'hidden',
       color: !isFolded ? 'black' : isHovered ? 'white' : 'dimgrey',
       backgroundColor: isHovered && isFolded ? 'lightseagreen' : 'whitesmoke',
       transition: '.3s',
       cursor: isFolded ? 'pointer' : 'auto',
-      margin: 10
+      margin: isMobile ? 0 : 10,
+      overflowWrap: 'anywhere'
     }),
     [isHovered, isFolded, isMobile]
   )
 
   const imgStyle = useMemo(() => ({
-    width: isFolded ? 200 : isMobile ? '100%' : '40%',
-    height: isFolded ? 200 : 'auto',
+    width: isFolded ? 160 : isMobile ? '100%' : '40%',
+    height: isFolded ? 160 : 'auto',
     objectFit: 'cover',
     transition: '.3s'
   }), [isFolded, isMobile]);
@@ -53,9 +54,14 @@ const PanelNews = ({caption, id, children, isFolded, handleFold}) => {
         src={process.env.PUBLIC_URL + '/img/news/' + id + '.jpg'}
         alt={caption}
       />
-      <div style={{margin: 20, textAlign: 'center'}} >
-        <h3>{caption}</h3><br />
-        {children}
+      <div style={{padding: 20, textAlign: 'center', width: '100%'}} >
+        <h3>{caption}</h3>
+        <br/>
+        <h4>{description}</h4>
+        <br/>
+        <div style={{display: isFolded ? 'none' : 'block'}}>
+          {children}
+        </div>
       </div>
     </div>
   );
