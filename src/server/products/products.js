@@ -46,9 +46,7 @@ import propet80 from './propet80';
 import s2n from './s2n';
 import s2 from './s2';
 import s8exp from './s8exp';
-import s15 from './s15';
 import s20exp from './s20exp';
-import s35 from './s35';
 import s40exp from './s40exp';
 import snare from './snare';
 import tests from './tests';
@@ -113,3 +111,5 @@ const products = [
     {id: "4p-a", caption: "4P-A", subtitle: "Датчик фазированный", group: "probes", subgroup: "", content: probe4pa},
     {id: "vc6-2", caption: "VC6-2", subtitle: "Датчик объемный конвексный", group: "probes", subgroup: "", content: probevc62},
 ]
+
+export default products;

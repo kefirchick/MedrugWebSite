@@ -9,7 +9,7 @@ const headerStyle = {
   justifyContent: 'space-between'
 }
 
-const Description = ({isFolded, caption, description, handleFold}) => {
+const Description = ({isFolded, caption, children, handleFold}) => {
   const style = useMemo(
     () => ({
       display: isFolded ? 'none' : 'flex',
@@ -29,7 +29,7 @@ const Description = ({isFolded, caption, description, handleFold}) => {
         <CloseButton handleFold={handleFold} />
       </div>
       <br />
-      {description}
+      {children}
       <BuyButton product={caption} />
       <ServiceWidget />
     </div>

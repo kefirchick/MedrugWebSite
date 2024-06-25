@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom'
 import { PanelProduct } from '../components/PanelProduct';
 import { CatalogBanner } from '../components/CatalogBanner';
+import products from '../server/products/products';
 
 const style = {
   display: 'flex',
@@ -18,21 +19,11 @@ const headerStyle = {
 
 const Catalog = () => {
   const tag = useParams().tag;
-  const [products, setProducts] = useState([]);
   const [unfoldedId, setUnfoldedId] = useState(null);
 
   const handleFold = (id) => {
     if (unfoldedId !== id) setUnfoldedId(id);
   };
-
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/products`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   const filteredProducts = products.filter(product => product?.group === tag);
   const uniqueSubgroups = [...new Set(filteredProducts.map(product => product.subgroup))];
@@ -55,7 +46,7 @@ const Catalog = () => {
                   isFolded={unfoldedId !== product?.id}
                   handleFold={handleFold}
                 >
-                  <div dangerouslySetInnerHTML={{ __html: product?.html }} />
+                  <product.content />
                 </PanelProduct>
               ))}
           </div>

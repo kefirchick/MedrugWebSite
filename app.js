@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const fs = require('fs');
 require('dotenv').config();
 
 const app = express();
@@ -23,25 +22,6 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(path.join(__dirname, 'build')));
-
-
-
-for (let i in products) {
-    fs.readFile(path.join(__dirname, 'src/server/products', products[i].id + '.html'), function(error, data) {
-        if (error) {
-            console.error(`Error reading product file ${products[i].id}.html:`, error);
-            return;
-        }
-        products[i].html = data.toString();
-    });
-}
-
-app.get('/api/products', (req, res) => {
-    console.log('GET /api/products');
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.json(products);
-    console.log('Sent products data');
-});
 
 app.get('*', (req, res) => {
     console.log(`GET ${req.url}`);
