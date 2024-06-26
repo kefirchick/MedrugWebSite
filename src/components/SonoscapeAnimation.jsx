@@ -1,13 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
+import { useResize } from './ResizeProvider';
 
 const animationLength = 50;
-
-const style = {
-  textAlign: 'center',
-  padding: 20,
-  width: '100%',
-  fontSize: 24,
-}
 
 const SonoscapeAnimation = () => {
   const [numbers, setNumbers] = useState([0, 0, 0]);
@@ -15,6 +9,27 @@ const SonoscapeAnimation = () => {
   const [wasIntersecting, setWasIntersecting] = useState(false);
   const observerRef = useRef(null);
   const elementRef = useRef(null);
+  const isMobile = useResize();
+
+  const style = useMemo(() => ({
+    textAlign: 'center',
+    padding: 20,
+    width: '100%',
+    fontSize: isMobile ? 12 : 24,
+    overflowWrap: 'anywhere'
+  }), [isMobile]);
+
+  const h2Style = useMemo(() => ({
+    color: 'lightseagreen',
+    fontSize: isMobile ? 18 : 36,
+    fontWeight: 'bold'
+  }), [isMobile]);
+
+  const h1Style = useMemo(() => ({
+    color: 'lightseagreen',
+    fontSize: isMobile ? 24 : 48,
+    fontWeight: 'bold'
+  }), [isMobile]);
 
   useEffect(() => {
     const handleNumber = (number) => (Math.floor(number * animationStep / animationLength));
@@ -46,14 +61,14 @@ const SonoscapeAnimation = () => {
 
   return (
     <table style={style}>
-      <caption><h1>SonoScape</h1></caption>
+      <caption><p style={h1Style}>SonoScape</p></caption>
       <tbody>
         <tr>
           <td style={{width: '50%'}}>
-            <h2>По всему миру</h2>
+            <p style={h2Style}>По всему миру</p>
           </td>
           <td colSpan="2">
-            <h2>Общее число специалистов:</h2>
+            <p style={h2Style}>Общее число специалистов:</p>
           </td>
         </tr>
         <tr>
@@ -62,9 +77,9 @@ const SonoscapeAnimation = () => {
           <td></td>
         </tr>
         <tr ref={elementRef}>
-          <td><h1>{numbers[0]}</h1></td>
-          <td><h1>{numbers[1]}</h1></td>
-          <td><h1>{numbers[2]}</h1></td>
+          <td><p style={h1Style}>{numbers[0]}</p></td>
+          <td><p style={h1Style}>{numbers[1]}</p></td>
+          <td><p style={h1Style}>{numbers[2]}</p></td>
         </tr>
         <tr>
           <td><p>странах мира.</p></td>
