@@ -52,6 +52,8 @@ import s8exp from './s8exp';
 import s9exp from './s9exp';
 import s20exp from './s20exp';
 import s40exp from './s40exp';
+import s50 from './s50';
+import s60 from './s60';
 import snare from './snare';
 import tests from './tests';
 import v2000 from './v2000';
@@ -86,6 +88,8 @@ const products = [
     {id: "p60", caption: "P60 / P60Exp", subtitle: "Выраженный интеллект", group: "ultrasound", subgroup: "P - серия", content: p60},
     {id: "s20exp", caption: "S20Exp", subtitle: "Совершенство во всем", group: "ultrasound", subgroup: "S - серия", content: s20exp},
     {id: "s40exp", caption: "S40Exp", subtitle: "Стиль и производительность", group: "ultrasound", subgroup: "S - серия", content: s40exp},
+    {id: "s50", caption: "S50", subtitle: "Показать невидимое", group: "ultrasound", subgroup: "S - серия", content: s50},
+    {id: "s60", caption: "S60", subtitle: "Вдохновляющий интеллект", group: "ultrasound", subgroup: "S - серия", content: s60},
     {id: "p40elite", caption: "P40 ELITE", subtitle: "Серия Elite", group: "ultrasound", subgroup: "Серия Elite", content: p40elite},
     {id: "p50elite", caption: "P50 ELITE", subtitle: "Серия Elite", group: "ultrasound", subgroup: "Серия Elite", content: p50elite},
     {id: "s50elite", caption: "S50 ELITE", subtitle: "Серия Elite", group: "ultrasound", subgroup: "Серия Elite", content: s50elite},
