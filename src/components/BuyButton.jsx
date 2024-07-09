@@ -4,7 +4,7 @@ import { FaWhatsappSquare } from "react-icons/fa"
 const BuyButton = ({product}) => {
   const [isHovered, setHovered] = useState(false);
   const message = encodeURIComponent(`Здравствуйте! Меня интересует "${product}".`);
-  const whatsappUrl = `https://wa.me/77001929911?text=${message}`;
+  const whatsappUrl = `https://wa.me/77751929911?text=${message}`;
 
   const style = useMemo(() => ({
     display: 'flex',

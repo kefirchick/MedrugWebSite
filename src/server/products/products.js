@@ -33,19 +33,23 @@ import irrigator from './irrigator';
 import probel741 from './l741';
 import mouthpiece from './mouthpiece';
 import p9 from './p9';
-import p10 from './p10';
+// import p10 from './p10';
 import p15 from './p15';
-import p20 from './p20';
+// import p20 from './p20';
 import p25 from './p25';
 import p40 from './p40';
-import p50 from './p50';
+// import p50 from './p50';
 import p60 from './p60';
 import propet60 from './propet60';
 import propet70 from './propet70';
 import propet80 from './propet80';
+import p40elite from './p40elite';
+import p50elite from './p50elite';
+import s50elite from './s50elite';
 import s2n from './s2n';
 import s2 from './s2';
 import s8exp from './s8exp';
+import s9exp from './s9exp';
 import s20exp from './s20exp';
 import s40exp from './s40exp';
 import snare from './snare';
@@ -53,6 +57,7 @@ import tests from './tests';
 import v2000 from './v2000';
 import probevc62 from './vc6-2';
 import x3v from './x3v';
+import x5 from './x5';
 
 const products = [
     {id: "hd-320", caption: "HD-320", subtitle: "Видеоэндоскопическая система", group: "endoscopy", subgroup: "Видеоэндоскопические системы", content: hd320},
@@ -71,25 +76,34 @@ const products = [
     {id: "insuflator", caption: "JSQB-P1", subtitle: "Эндоскопический СО2 инсуфлятор", group: "endoscopy", subgroup: "Вспомогательное оборудование", content: insuflator},
     {id: "irrigator", caption: "JSFB-P1", subtitle: "Эндоскопический ирригатор", group: "endoscopy", subgroup: "Вспомогательное оборудование", content: irrigator},
     {id: "aspirator", caption: "NEW ASKIR 30", subtitle: "Хирургический аспиратор", group: "endoscopy", subgroup: "Вспомогательное оборудование", content: aspirator},
-    {id: "p9", caption: "P9", subtitle: "Удобное решение для точных диагнозов", group: "ultrasound", subgroup: "P - серия", content: p9},
-    {id: "p10", caption: "P10", subtitle: "Гибкие решения в ультразвуковой диагностике", group: "ultrasound", subgroup: "P - серия", content: p10},
-    {id: "p15", caption: "P15", subtitle: "Улучшенные ультразвуковые технологии", group: "ultrasound", subgroup: "P - серия", content: p15},
-    {id: "p20", caption: "P20", subtitle: "Ценность и значимость", group: "ultrasound", subgroup: "P - серия", content: p20},
+    {id: "p9", caption: "P9 / P10", subtitle: "Удобное решение для точных диагнозов", group: "ultrasound", subgroup: "P - серия", content: p9},
+    // {id: "p10", caption: "P10", subtitle: "Гибкие решения в ультразвуковой диагностике", group: "ultrasound", subgroup: "P - серия", content: p10},
+    {id: "p15", caption: "P15 / P20", subtitle: "Улучшенные ультразвуковые технологии", group: "ultrasound", subgroup: "P - серия", content: p15},
+    // {id: "p20", caption: "P20", subtitle: "Ценность и значимость", group: "ultrasound", subgroup: "P - серия", content: p20},
     {id: "p25", caption: "P25", subtitle: "Стабильная производительность", group: "ultrasound", subgroup: "P - серия", content: p25},
-    {id: "p40", caption: "P40", subtitle: "Опыт и ценности", group: "ultrasound", subgroup: "P - серия", content: p40},
-    {id: "p50", caption: "P50", subtitle: "Расширьте свой взгляд", group: "ultrasound", subgroup: "P - серия", content: p50},
-    {id: "p60", caption: "P60", subtitle: "Выраженный интеллект", group: "ultrasound", subgroup: "P - серия", content: p60},
+    {id: "p40", caption: "P40 / P50", subtitle: "Опыт и ценности", group: "ultrasound", subgroup: "P - серия", content: p40},
+    // {id: "p50", caption: "P50", subtitle: "Расширьте свой взгляд", group: "ultrasound", subgroup: "P - серия", content: p50},
+    {id: "p60", caption: "P60 / P60Exp", subtitle: "Выраженный интеллект", group: "ultrasound", subgroup: "P - серия", content: p60},
     {id: "s20exp", caption: "S20Exp", subtitle: "Совершенство во всем", group: "ultrasound", subgroup: "S - серия", content: s20exp},
     {id: "s40exp", caption: "S40Exp", subtitle: "Стиль и производительность", group: "ultrasound", subgroup: "S - серия", content: s40exp},
-    {id: "propet60", caption: "ProPet 60", subtitle: "Новинка для ветеринарии", group: "veterinary", content: propet60},
-    {id: "propet70", caption: "ProPet 70", subtitle: "Новинка для ветеринарии", group: "veterinary", content: propet70},
-    {id: "propet80", caption: "ProPet 80", subtitle: "Новинка для ветеринарии", group: "veterinary", content: propet80},
+    {id: "p40elite", caption: "P40 ELITE", subtitle: "Серия Elite", group: "ultrasound", subgroup: "Серия Elite", content: p40elite},
+    {id: "p50elite", caption: "P50 ELITE", subtitle: "Серия Elite", group: "ultrasound", subgroup: "Серия Elite", content: p50elite},
+    {id: "s50elite", caption: "S50 ELITE", subtitle: "Серия Elite", group: "ultrasound", subgroup: "Серия Elite", content: s50elite},
     {id: "e1", caption: "E1", subtitle: "Для всех ваших потребностей", group: "ultrasound", subgroup: "Портативные УЗ системы", content: e1},
     {id: "e2", caption: "E2", subtitle: "Для всех ваших потребностей", group: "ultrasound", subgroup: "Портативные УЗ системы", content: e2},
     {id: "e3", caption: "E3", subtitle: "Для всех ваших потребностей", group: "ultrasound", subgroup: "Портативные УЗ системы", content: e3},
     {id: "s2", caption: "S2", subtitle: "Ваши ценности и приоритеты", group: "ultrasound", subgroup: "Портативные УЗ системы", content: s2},
     {id: "s2n", caption: "S2N", subtitle: "Ваши ценности и приоритеты", group: "ultrasound", subgroup: "Портативные УЗ системы", content: s2n},
     {id: "s8exp", caption: "S8Exp", subtitle: "Гибкость и универсальность", group: "ultrasound", subgroup: "Портативные УЗ системы", content: s8exp},
+    {id: "s9exp", caption: "S9 / S9Exp / S9Pro", subtitle: "Гибкость и универсальность", group: "ultrasound", subgroup: "Портативные УЗ системы", content: s9exp},
+    {id: "s2", caption: "S2", subtitle: "Ваши ценности и приоритеты", group: "ultrasound", subgroup: "S - серия", content: s2},
+    {id: "s2n", caption: "S2N", subtitle: "Ваши ценности и приоритеты", group: "ultrasound", subgroup: "S - серия", content: s2n},
+    {id: "s8exp", caption: "S8Exp", subtitle: "Гибкость и универсальность", group: "ultrasound", subgroup: "S - серия", content: s8exp},
+    {id: "s9exp", caption: "S9 / S9Exp / S9Pro", subtitle: "Гибкость и универсальность", group: "ultrasound", subgroup: "S - серия", content: s9exp},
+    {id: "x5", caption: "X3 / X5", subtitle: "Высокий класс", group: "ultrasound", subgroup: "Портативные УЗ системы", content: x5},
+    {id: "propet60", caption: "ProPet 60", subtitle: "Новинка для ветеринарии", group: "veterinary", content: propet60},
+    {id: "propet70", caption: "ProPet 70", subtitle: "Новинка для ветеринарии", group: "veterinary", content: propet70},
+    {id: "propet80", caption: "ProPet 80", subtitle: "Новинка для ветеринарии", group: "veterinary", content: propet80},
     {id: "tests", caption: "HUBT-20P", subtitle: "Тесты Helicobacter Pylori", group: "helicobacter", subgroup: "", content: tests},
     {id: "v2000", caption: "V2000", subtitle: "Ветеринарная эндоскопическая система", group: "veterinary", subgroup: "", content: v2000},
     {id: "x3v", caption: "X3V / X5V", subtitle: "Почувствуйте разницу", group: "veterinary", subgroup: "", content: x3v},
