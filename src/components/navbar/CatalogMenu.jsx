@@ -13,7 +13,7 @@ const CatalogMenu = ({isCatalogHidden, setCatalogHidden, menuClose}) => {
       top: 90,
       backgroundColor: 'white',
       overflow: 'hidden',
-      height: isCatalogHidden ? 0 : 300,
+      height: isCatalogHidden ? 0 : 'auto',
       transition: 'height .3s',
       boxShadow: isMobile ? 'none' : '0px 10px 20px rgba(0, 0, 0, 0.1)',
       marginLeft: isMobile ? 20 : 0,
@@ -34,6 +34,7 @@ const CatalogMenu = ({isCatalogHidden, setCatalogHidden, menuClose}) => {
       <NavLink onClick={menuClose} to="/catalog/instruments">ИНСТРУМЕНТЫ</NavLink>
       <NavLink onClick={menuClose} to="/catalog/helicobacter">ХЕЛИКОБАКТЕР</NavLink>
       <NavLink onClick={menuClose} to="/catalog/veterinary">ВЕТЕРИНАРИЯ</NavLink>
+      <NavLink onClick={menuClose} to="/catalog/radiology">РЕНТГЕН</NavLink>
     </div>
   );
 }

@@ -60,6 +60,11 @@ import v2000 from './v2000';
 import probevc62 from './vc6-2';
 import x3v from './x3v';
 import x5 from './x5';
+import plx112b1 from './plx112b1';
+import plx118f from './plx118f';
+import plx7100a from './plx7100a';
+import plx5200a from './plx5200a';
+import pld9600d from './pld9600d';
 
 const products = [
     {id: "hd-320", caption: "HD-320", subtitle: "Видеоэндоскопическая система", group: "endoscopy", subgroup: "Видеоэндоскопические системы", content: hd320},
@@ -128,6 +133,11 @@ const products = [
     {id: "2p1", caption: "2P1", subtitle: "Датчик фазированный", group: "probes", subgroup: "", content: probe2p1},
     {id: "4p-a", caption: "4P-A", subtitle: "Датчик фазированный", group: "probes", subgroup: "", content: probe4pa},
     {id: "vc6-2", caption: "VC6-2", subtitle: "Датчик объемный конвексный", group: "probes", subgroup: "", content: probevc62},
+    {id: "plx112b1", caption: "PLX112B1", subtitle: "Мобильная цифровая С-дуга", group: "radiology", subgroup: "", content: plx112b1},
+    {id: "plx118f", caption: "PLX118F", subtitle: "Мобильная цифровая FPD C-дуга с плоскопанельным детектором", group: "radiology", subgroup: "", content: plx118f},
+    {id: "plx7100a", caption: "PLX7100A", subtitle: "Мобильная цифровая интервенционная FPD С-дуга", group: "radiology", subgroup: "", content: plx7100a},
+    {id: "plx5200a", caption: "PLX5200A", subtitle: "Мобильная цифровая рентгенографическая система", group: "radiology", subgroup: "", content: plx5200a},
+    {id: "pld9600d", caption: "PLD9600D", subtitle: "Система цифровой рентгенографии и цифровой флюороскопии", group: "radiology", subgroup: "", content: pld9600d},
 ]
 
 export default products;
