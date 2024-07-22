@@ -65,6 +65,9 @@ import plx118f from './plx118f';
 import plx7100a from './plx7100a';
 import plx5200a from './plx5200a';
 import pld9600d from './pld9600d';
+import mediola_compact from './mediola_compact';
+import mediola_endo from './mediola_endo';
+import mediola_holmium from './mediola_holmium';
 
 const products = [
     {id: "hd-320", caption: "HD-320", subtitle: "Видеоэндоскопическая система", group: "endoscopy", subgroup: "Видеоэндоскопические системы", content: hd320},
@@ -138,6 +141,9 @@ const products = [
     {id: "plx7100a", caption: "PLX7100A", subtitle: "Мобильная цифровая интервенционная FPD С-дуга", group: "radiology", subgroup: "", content: plx7100a},
     {id: "plx5200a", caption: "PLX5200A", subtitle: "Мобильная цифровая рентгенографическая система", group: "radiology", subgroup: "", content: plx5200a},
     {id: "pld9600d", caption: "PLD9600D", subtitle: "Система цифровой рентгенографии и цифровой флюороскопии", group: "radiology", subgroup: "", content: pld9600d},
+    {id: "mediola_compact", caption: "Mediola Compact", subtitle: "", group: "lasers", subgroup: "", content: mediola_compact},
+    {id: "mediola_endo", caption: "Mediola Endo", subtitle: "", group: "lasers", subgroup: "", content: mediola_endo},
+    {id: "mediola_holmium", caption: "Mediola Holmium", subtitle: "", group: "lasers", subgroup: "", content: mediola_holmium},
 ]
 
 export default products;

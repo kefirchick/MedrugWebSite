@@ -35,6 +35,7 @@ const CatalogMenu = ({isCatalogHidden, setCatalogHidden, menuClose}) => {
       <NavLink onClick={menuClose} to="/catalog/helicobacter">ХЕЛИКОБАКТЕР</NavLink>
       <NavLink onClick={menuClose} to="/catalog/veterinary">ВЕТЕРИНАРИЯ</NavLink>
       <NavLink onClick={menuClose} to="/catalog/radiology">РЕНТГЕН</NavLink>
+      <NavLink onClick={menuClose} to="/catalog/lasers">ЛАЗЕРЫ</NavLink>
     </div>
   );
 }
