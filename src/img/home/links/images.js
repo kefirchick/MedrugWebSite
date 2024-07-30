@@ -4,6 +4,8 @@ import endoscopyImg from './endoscopy.jpg';
 import instrumentsImg from './instruments.jpg';
 import helicobacterImg from './helicobacter.jpg';
 import veterinaryImg from './veterinary.jpg';
+import laserImg from './laser.jpg';
+import radioImg from './radio.jpg';
 
 export {
   ultrasoundImg,
@@ -11,5 +13,7 @@ export {
   endoscopyImg,
   instrumentsImg,
   helicobacterImg,
-  veterinaryImg
+  veterinaryImg,
+  laserImg,
+  radioImg
 };
